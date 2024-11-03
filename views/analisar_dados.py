@@ -102,11 +102,13 @@ correlation_matrix = sample_df[graded_questions].corr(method='spearman')
 st.title("Análise de Correlação Spearman das Perguntas Avaliadas")
 st.write("Esta matriz de correlação Spearman mostra as relações entre as perguntas avaliadas.")
 
-# Display heatmap of the correlation matrix
+# Display heatmap of the correlation matrix with larger dimensions
 fig = px.imshow(
     correlation_matrix,
     text_auto=True,
     color_continuous_scale="RdBu",
-    title="Matriz de Correlação (Spearman) para Perguntas Avaliadas"
+    title="Matriz de Correlação (Spearman) para Perguntas Avaliadas",
+    width=700,   # Set a larger width
+    height=700   # Set a larger height
 )
 st.plotly_chart(fig)
