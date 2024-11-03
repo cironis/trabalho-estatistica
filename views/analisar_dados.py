@@ -82,3 +82,31 @@ st.plotly_chart(fig_continue_quality)
 st.subheader("12. Intenção de Continuidade por Gênero")
 fig_continue_gender = px.histogram(sample_df, x="Continuidade no curso", color="Gênero", title="Intenção de Continuidade por Gênero")
 st.plotly_chart(fig_continue_gender)
+
+
+# Define graded questions for correlation analysis
+graded_questions = [
+    "Qualidade das aulas",
+    "Infraestrutura física",
+    "Suporte acadêmico",
+    "Carga horária e ritmo",
+    "Preparação para mercado",
+    "Desmotivação por reprovação",
+    "Planejamento do curso"
+]
+
+# Compute Spearman correlation matrix
+correlation_matrix = sample_df[graded_questions].corr(method='spearman')
+
+# Display in Streamlit
+st.title("Análise de Correlação Spearman das Perguntas Avaliadas")
+st.write("Esta matriz de correlação Spearman mostra as relações entre as perguntas avaliadas.")
+
+# Display heatmap of the correlation matrix
+fig = px.imshow(
+    correlation_matrix,
+    text_auto=True,
+    color_continuous_scale="RdBu",
+    title="Matriz de Correlação (Spearman) para Perguntas Avaliadas"
+)
+st.plotly_chart(fig)
