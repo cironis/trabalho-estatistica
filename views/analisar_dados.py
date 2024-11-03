@@ -20,65 +20,65 @@ sample_df = create_sample_df(100)
 st.title("Análise dos dados")
 
 
-# Streamlit header
-st.title("Survey Data Analysis")
+# Título principal
+st.title("Análise dos Dados da Pesquisa")
 
-# Age Distribution
-st.subheader("1. Age Distribution of Respondents")
-fig_age = px.histogram(sample_df, x="Idade", nbins=10, title="Age Distribution of Respondents")
+# Distribuição de Idade
+st.subheader("1. Distribuição de Idade dos Respondentes")
+fig_age = px.histogram(sample_df, x="Idade", nbins=10, title="Distribuição de Idade dos Respondentes")
 st.plotly_chart(fig_age)
 
-# Evaluation Scores Distribution
-st.subheader("2. Distribution of Class Quality Evaluation")
-fig_qualidade = px.histogram(sample_df, x="Qualidade das aulas", title="Distribution of Class Quality Evaluation")
+# Distribuição das Avaliações da Qualidade das Aulas
+st.subheader("2. Distribuição da Avaliação da Qualidade das Aulas")
+fig_qualidade = px.histogram(sample_df, x="Qualidade das aulas", title="Distribuição da Avaliação da Qualidade das Aulas")
 st.plotly_chart(fig_qualidade)
 
-# Age by Gender
-st.subheader("3. Age by Gender")
-fig_age_gender = px.box(sample_df, x="Gênero", y="Idade", title="Age by Gender")
+# Idade por Gênero
+st.subheader("3. Idade por Gênero")
+fig_age_gender = px.box(sample_df, x="Gênero", y="Idade", title="Idade por Gênero")
 st.plotly_chart(fig_age_gender)
 
-# Box plot of age with evaluation scores for class quality
-st.subheader("4. Class Quality Evaluation by Gender")
-fig_age_eval = px.box(sample_df, x="Gênero", y="Qualidade das aulas", title="Class Quality Evaluation by Gender")
+# Avaliação de Qualidade das Aulas por Gênero
+st.subheader("4. Avaliação da Qualidade das Aulas por Gênero")
+fig_age_eval = px.box(sample_df, x="Gênero", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Gênero")
 st.plotly_chart(fig_age_eval)
 
-# Admission Year and Evaluation Score
-st.subheader("5. Class Quality Evaluation by Admission Year")
-fig_year_eval = px.box(sample_df, x="Ano de ingresso", y="Qualidade das aulas", title="Class Quality Evaluation by Admission Year")
+# Ano de Ingresso e Avaliação das Aulas
+st.subheader("5. Avaliação da Qualidade das Aulas por Ano de Ingresso")
+fig_year_eval = px.box(sample_df, x="Ano de ingresso", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Ano de Ingresso")
 st.plotly_chart(fig_year_eval)
 
-# Admission Year by Institute
-st.subheader("6. Year of Admission by Institute")
-fig_year_institute = px.histogram(sample_df, x="Ano de ingresso", color="Instituto", title="Year of Admission by Institute")
+# Ano de Ingresso por Instituto
+st.subheader("6. Ano de Ingresso por Instituto")
+fig_year_institute = px.histogram(sample_df, x="Ano de ingresso", color="Instituto", title="Ano de Ingresso por Instituto")
 st.plotly_chart(fig_year_institute)
 
-# Evaluation Scores by Institute
-st.subheader("7. Evaluation of Class Quality by Institute")
-fig_institute_eval = px.box(sample_df, x="Instituto", y="Qualidade das aulas", title="Evaluation of Class Quality by Institute")
+# Avaliação da Qualidade das Aulas por Instituto
+st.subheader("7. Avaliação da Qualidade das Aulas por Instituto")
+fig_institute_eval = px.box(sample_df, x="Instituto", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Instituto")
 st.plotly_chart(fig_institute_eval)
 
-# Course Type by Institute
-st.subheader("8. Course Type Distribution by Institute")
-fig_course_institute = px.histogram(sample_df, x="Instituto", color="Curso", title="Course Type Distribution by Institute")
+# Distribuição do Tipo de Curso por Instituto
+st.subheader("8. Distribuição do Tipo de Curso por Instituto")
+fig_course_institute = px.histogram(sample_df, x="Instituto", color="Curso", title="Distribuição do Tipo de Curso por Instituto")
 st.plotly_chart(fig_course_institute)
 
-# Course Type and Motivation
-st.subheader("9. Motivation by Course Type")
-fig_course_motivation = px.box(sample_df, x="Curso", y="Desmotivação por reprovação", title="Motivation by Course Type")
+# Motivação por Tipo de Curso
+st.subheader("9. Motivação por Tipo de Curso")
+fig_course_motivation = px.box(sample_df, x="Curso", y="Desmotivação por reprovação", title="Motivação por Tipo de Curso")
 st.plotly_chart(fig_course_motivation)
 
-# Market Preparedness by Course Type
-st.subheader("10. Market Preparedness by Course Type")
-fig_market_course = px.box(sample_df, x="Curso", y="Preparação para mercado", title="Market Preparedness by Course Type")
+# Preparação para o Mercado por Tipo de Curso
+st.subheader("10. Preparação para o Mercado por Tipo de Curso")
+fig_market_course = px.box(sample_df, x="Curso", y="Preparação para mercado", title="Preparação para o Mercado por Tipo de Curso")
 st.plotly_chart(fig_market_course)
 
-# Continuity Intent and Evaluation Scores
-st.subheader("11. Class Quality Evaluation by Continuity Intent")
-fig_continue_quality = px.box(sample_df, x="Continuidade no curso", y="Qualidade das aulas", title="Class Quality Evaluation by Continuity Intent")
+# Avaliação da Qualidade das Aulas por Intenção de Continuidade
+st.subheader("11. Avaliação da Qualidade das Aulas por Intenção de Continuidade")
+fig_continue_quality = px.box(sample_df, x="Continuidade no curso", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Intenção de Continuidade")
 st.plotly_chart(fig_continue_quality)
 
-# Continuity Intent by Gender
-st.subheader("12. Continuity Intent by Gender")
-fig_continue_gender = px.histogram(sample_df, x="Continuidade no curso", color="Gênero", title="Continuity Intent by Gender")
+# Intenção de Continuidade por Gênero
+st.subheader("12. Intenção de Continuidade por Gênero")
+fig_continue_gender = px.histogram(sample_df, x="Continuidade no curso", color="Gênero", title="Intenção de Continuidade por Gênero")
 st.plotly_chart(fig_continue_gender)
