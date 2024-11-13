@@ -139,3 +139,44 @@ st.plotly_chart(fig_course_entry)
 st.subheader("Análise Agrupada: Idade x Anos na USP")
 grouped_years_age = df.groupby(["Curso Matriculado", "Gênero"])[["Idade", "Há quantos anos você está na USP?"]].mean()
 st.dataframe(grouped_years_age)
+
+
+# 1. Distribuição do Tipo de Escola
+st.subheader("Distribuição por Tipo de Escola no Ensino Médio")
+fig_school_type = px.histogram(
+    updated_df,
+    x="Em que tipo de escola você estudou a maior parte do Ensino médio?",
+    title="Distribuição por Tipo de Escola no Ensino Médio",
+    labels={"Em que tipo de escola você estudou a maior parte do Ensino médio?": "Tipo de Escola"},
+)
+st.plotly_chart(fig_school_type)
+
+# 2. Tipo de Escola x Curso Matriculado
+st.subheader("Tipo de Escola x Curso Matriculado")
+fig_school_course = px.histogram(
+    updated_df,
+    x="Curso Matriculado",
+    color="Em que tipo de escola você estudou a maior parte do Ensino médio?",
+    barmode="group",
+    title="Tipo de Escola x Curso Matriculado",
+    labels={
+        "Curso Matriculado": "Curso",
+        "Em que tipo de escola você estudou a maior parte do Ensino médio?": "Tipo de Escola",
+    },
+)
+st.plotly_chart(fig_school_course)
+
+# 3. Tipo de Escola x Gênero
+st.subheader("Tipo de Escola x Gênero")
+fig_school_gender = px.histogram(
+    updated_df,
+    x="Gênero",
+    color="Em que tipo de escola você estudou a maior parte do Ensino médio?",
+    barmode="group",
+    title="Tipo de Escola x Gênero",
+    labels={
+        "Gênero": "Gênero",
+        "Em que tipo de escola você estudou a maior parte do Ensino médio?": "Tipo de Escola",
+    },
+)
+st.plotly_chart(fig_school_gender)

@@ -6,19 +6,19 @@ import random
 def generate_sample_dataframe(sample_size=100):
     """
     Generates a sample dataframe with random responses based on the defined survey structure.
-
+    Includes a new question about the type of high school attended.
+    
     Parameters:
         sample_size (int): Number of random responses to generate.
 
     Returns:
         pd.DataFrame: A dataframe with the generated sample responses.
     """
-    # Define the possible responses for each question
     data = {
         "Curso Matriculado": ["Licenciatura", "Bacharelado"],
         "Gênero": ["Masculino", "Feminino", "Outros"],
-        "Idade": range(17, 35),
-        "Ano de Ingresso": range(2015, 2024),
+        "Idade": range(17, 35),  # Assumed range of ages
+        "Ano de Ingresso": range(2015, 2024),  # Assumed range of years
         "Há quantos anos você está na USP?": range(1, 10),
         "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]": range(0, 6),
         "Avaliação do Curso [Como você avalia a infraestrutura física do seu Instituto?]": range(0, 6),
@@ -52,6 +52,11 @@ def generate_sample_dataframe(sample_size=100):
             "Não, consigo manter meu bem-estar físico e mental.",
             "Em parte, sinto leves impactos ocasionais.",
             "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.",
+        ],
+        "Em que tipo de escola você estudou a maior parte do Ensino médio?": [
+            "Pública",
+            "Privada",
+            "Mista (alternou entre pública e privada)",
         ],
     }
 
