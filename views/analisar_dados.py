@@ -86,6 +86,6 @@ fig_course_gender = px.histogram(
 st.plotly_chart(fig_course_gender)
 
 # Table: Grouped Analysis
-st.subheader("Análise Agrupada")
+st.subheader("Análise Agrupada - Curso Matriculado -  Gênero Idade")
 grouped_analysis = df.groupby(["Curso Matriculado", "Gênero"])["Idade"].describe()
 st.write(grouped_analysis)
