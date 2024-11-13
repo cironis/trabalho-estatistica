@@ -136,7 +136,6 @@ fig_course_entry = px.histogram(
 )
 st.plotly_chart(fig_course_entry)
 
-# Grouped Analysis: Years in USP and Age
 st.subheader("Análise Agrupada: Idade x Anos na USP")
-grouped_years_age = df.groupby(["Curso Matriculado", "Gênero"])["Idade", "Há quantos anos você está na USP?"].mean()
-st.write(grouped_years_age)
+grouped_years_age = df.groupby(["Curso Matriculado", "Gênero"])[["Idade", "Há quantos anos você está na USP?"]].mean()
+st.dataframe(grouped_years_age)
