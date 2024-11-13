@@ -20,6 +20,7 @@ pg = st.navigation(
 )
 
 
+
 # --- SHARED ON ALL PAGES ---
 # st.logo("assets/codingisfun_logo.png")
 

@@ -16,99 +16,72 @@ def load_main_dataframe(worksheet):
     return df
 
 
-sample_df = create_sample_df(100)
-st.title("Análise dos dados")
+df = generate_sample_dataframe(100)
 
+# Streamlit App
+st.title("Análise de Resultados do Formulário")
+st.write("Este painel apresenta visualizações e análises baseadas nos dados coletados.")
 
-# Título principal
-st.title("Análise dos Dados da Pesquisa")
+# Visualização 1: Distribuição por Curso Matriculado
+st.subheader("Distribuição por Curso Matriculado")
+fig1 = px.histogram(df, x="Curso Matriculado", title="Distribuição por Curso Matriculado")
+st.plotly_chart(fig1)
 
-# Distribuição de Idade
-st.subheader("1. Distribuição de Idade dos Respondentes")
-fig_age = px.histogram(sample_df, x="Idade", nbins=10, title="Distribuição de Idade dos Respondentes")
-st.plotly_chart(fig_age)
+# Visualização 2: Distribuição por Gênero
+st.subheader("Distribuição por Gênero")
+fig2 = px.histogram(df, x="Gênero", title="Distribuição por Gênero")
+st.plotly_chart(fig2)
 
-# Distribuição das Avaliações da Qualidade das Aulas
-st.subheader("2. Distribuição da Avaliação da Qualidade das Aulas")
-fig_qualidade = px.histogram(sample_df, x="Qualidade das aulas", title="Distribuição da Avaliação da Qualidade das Aulas")
-st.plotly_chart(fig_qualidade)
+# Visualização 3: Idade dos Alunos
+st.subheader("Distribuição de Idade")
+fig3 = px.histogram(df, x="Idade", title="Distribuição de Idade")
+st.plotly_chart(fig3)
 
-# Idade por Gênero
-st.subheader("3. Idade por Gênero")
-fig_age_gender = px.box(sample_df, x="Gênero", y="Idade", title="Idade por Gênero")
-st.plotly_chart(fig_age_gender)
-
-# Avaliação de Qualidade das Aulas por Gênero
-st.subheader("4. Avaliação da Qualidade das Aulas por Gênero")
-fig_age_eval = px.box(sample_df, x="Gênero", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Gênero")
-st.plotly_chart(fig_age_eval)
-
-# Ano de Ingresso e Avaliação das Aulas
-st.subheader("5. Avaliação da Qualidade das Aulas por Ano de Ingresso")
-fig_year_eval = px.box(sample_df, x="Ano de ingresso", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Ano de Ingresso")
-st.plotly_chart(fig_year_eval)
-
-# Ano de Ingresso por Instituto
-st.subheader("6. Ano de Ingresso por Instituto")
-fig_year_institute = px.histogram(sample_df, x="Ano de ingresso", color="Instituto", title="Ano de Ingresso por Instituto")
-st.plotly_chart(fig_year_institute)
-
-# Avaliação da Qualidade das Aulas por Instituto
-st.subheader("7. Avaliação da Qualidade das Aulas por Instituto")
-fig_institute_eval = px.box(sample_df, x="Instituto", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Instituto")
-st.plotly_chart(fig_institute_eval)
-
-# Distribuição do Tipo de Curso por Instituto
-st.subheader("8. Distribuição do Tipo de Curso por Instituto")
-fig_course_institute = px.histogram(sample_df, x="Instituto", color="Curso", title="Distribuição do Tipo de Curso por Instituto")
-st.plotly_chart(fig_course_institute)
-
-# Motivação por Tipo de Curso
-st.subheader("9. Motivação por Tipo de Curso")
-fig_course_motivation = px.box(sample_df, x="Curso", y="Desmotivação por reprovação", title="Motivação por Tipo de Curso")
-st.plotly_chart(fig_course_motivation)
-
-# Preparação para o Mercado por Tipo de Curso
-st.subheader("10. Preparação para o Mercado por Tipo de Curso")
-fig_market_course = px.box(sample_df, x="Curso", y="Preparação para mercado", title="Preparação para o Mercado por Tipo de Curso")
-st.plotly_chart(fig_market_course)
-
-# Avaliação da Qualidade das Aulas por Intenção de Continuidade
-st.subheader("11. Avaliação da Qualidade das Aulas por Intenção de Continuidade")
-fig_continue_quality = px.box(sample_df, x="Continuidade no curso", y="Qualidade das aulas", title="Avaliação da Qualidade das Aulas por Intenção de Continuidade")
-st.plotly_chart(fig_continue_quality)
-
-# Intenção de Continuidade por Gênero
-st.subheader("12. Intenção de Continuidade por Gênero")
-fig_continue_gender = px.histogram(sample_df, x="Continuidade no curso", color="Gênero", title="Intenção de Continuidade por Gênero")
-st.plotly_chart(fig_continue_gender)
-
-
-# Define graded questions for correlation analysis
-graded_questions = [
-    "Qualidade das aulas",
-    "Infraestrutura física",
-    "Suporte acadêmico",
-    "Carga horária e ritmo",
-    "Preparação para mercado",
-    "Desmotivação por reprovação",
-    "Planejamento do curso"
-]
-
-# Compute Spearman correlation matrix
-correlation_matrix = sample_df[graded_questions].corr(method='spearman')
-
-# Display in Streamlit
-st.title("Análise de Correlação Spearman das Perguntas Avaliadas")
-st.write("Esta matriz de correlação Spearman mostra as relações entre as perguntas avaliadas.")
-
-# Display heatmap of the correlation matrix with larger dimensions
-fig = px.imshow(
-    correlation_matrix,
-    text_auto=True,
-    color_continuous_scale="RdBu",
-    title="Matriz de Correlação (Spearman) para Perguntas Avaliadas",
-    width=700,   # Set a larger width
-    height=700   # Set a larger height
+# Visualização 4: Identificação com o Curso
+st.subheader("Identificação com o Curso")
+fig4 = px.histogram(
+    df,
+    x="Você sente que se identifica com o curso em que está matriculado?",
+    title="Identificação com o Curso",
 )
-st.plotly_chart(fig)
+st.plotly_chart(fig4)
+
+# Visualização 5: Impacto na Saúde Física e Mental
+st.subheader("Impacto do Curso na Saúde Física e Mental")
+fig5 = px.histogram(
+    df,
+    x="O curso tem impactado sua saúde física ou mental de alguma forma?",
+    title="Impacto na Saúde Física e Mental",
+)
+st.plotly_chart(fig5)
+
+# Visualização 6: Avaliação das Aulas
+st.subheader("Avaliação da Qualidade das Aulas")
+fig6 = px.box(
+    df,
+    y="Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
+    title="Qualidade das Aulas - Avaliação",
+)
+st.plotly_chart(fig6)
+
+# Visualização 7: Expectativas com o Curso
+st.subheader("Expectativas Atendidas")
+fig7 = px.histogram(
+    df,
+    x="O curso tem atendido às suas expectativas desde que você iniciou?",
+    title="Expectativas Atendidas",
+)
+st.plotly_chart(fig7)
+
+# Visualização 8: Planejamento do Curso e Futuro
+st.subheader("Planejamento do Curso em Relação à Área de Atuação")
+fig8 = px.box(
+    df,
+    y="Avaliação do Curso [O planejamento do seu curso é alinhado com sua futura área de atuação?]",
+    title="Planejamento do Curso - Avaliação",
+)
+st.plotly_chart(fig8)
+
+st.write("Explore mais interativamente ou adicione filtros para detalhar as análises!")
+
+
