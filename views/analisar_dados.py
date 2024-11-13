@@ -88,3 +88,4 @@ st.plotly_chart(fig_course_gender)
 # Table: Grouped Analysis
 st.subheader("Análise Agrupada")
 grouped_analysis = df.groupby(["Curso Matriculado", "Gênero"])["Idade"].describe()
+st.write(grouped_analysis)
