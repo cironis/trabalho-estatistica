@@ -21,17 +21,6 @@ df = generate_sample_dataframe(100)
 
 st.title("Impacto das Características nas Respostas")
 
-# Impacto da Idade nas Avaliações do Curso
-st.subheader("Idade x Avaliações do Curso")
-fig_age_eval = px.scatter(
-    df,
-    x="Idade",
-    y="Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
-    title="Idade x Qualidade das Aulas",
-    labels={"Idade": "Idade", "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]": "Qualidade das Aulas"},
-    trendline="ols",
-)
-st.plotly_chart(fig_age_eval)
 
 # Impacto do Gênero nas Avaliações do Curso
 st.subheader("Gênero x Avaliações do Curso")
