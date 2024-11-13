@@ -89,3 +89,54 @@ st.plotly_chart(fig_course_gender)
 st.subheader("Análise Agrupada - Curso Matriculado -  Gênero Idade")
 grouped_analysis = df.groupby(["Curso Matriculado", "Gênero"])["Idade"].describe()
 st.write(grouped_analysis)
+
+# Gender vs. Years in USP
+st.subheader("Gênero x Anos na USP")
+fig_gender_years = px.box(
+    df,
+    x="Gênero",
+    y="Há quantos anos você está na USP?",
+    title="Distribuição de Anos na USP por Gênero",
+    labels={"Gênero": "Gênero", "Há quantos anos você está na USP?": "Anos na USP"}
+)
+st.plotly_chart(fig_gender_years)
+
+# Course vs. Years in USP
+st.subheader("Curso Matriculado x Anos na USP")
+fig_course_years = px.box(
+    df,
+    x="Curso Matriculado",
+    y="Há quantos anos você está na USP?",
+    title="Distribuição de Anos na USP por Curso Matriculado",
+    labels={"Curso Matriculado": "Curso", "Há quantos anos você está na USP?": "Anos na USP"}
+)
+st.plotly_chart(fig_course_years)
+
+# Gender vs. Year of Entry
+st.subheader("Gênero x Ano de Ingresso")
+fig_gender_entry = px.histogram(
+    df,
+    x="Ano de Ingresso",
+    color="Gênero",
+    barmode="group",
+    title="Distribuição de Ano de Ingresso por Gênero",
+    labels={"Ano de Ingresso": "Ano de Ingresso", "Gênero": "Gênero"}
+)
+st.plotly_chart(fig_gender_entry)
+
+# Course vs. Year of Entry
+st.subheader("Curso Matriculado x Ano de Ingresso")
+fig_course_entry = px.histogram(
+    df,
+    x="Ano de Ingresso",
+    color="Curso Matriculado",
+    barmode="group",
+    title="Distribuição de Ano de Ingresso por Curso Matriculado",
+    labels={"Ano de Ingresso": "Ano de Ingresso", "Curso Matriculado": "Curso"}
+)
+st.plotly_chart(fig_course_entry)
+
+# Grouped Analysis: Years in USP and Age
+st.subheader("Análise Agrupada: Idade x Anos na USP")
+grouped_years_age = df.groupby(["Curso Matriculado", "Gênero"])["Idade", "Há quantos anos você está na USP?"].mean()
+st.write(grouped_years_age)
