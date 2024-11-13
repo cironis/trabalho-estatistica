@@ -88,7 +88,7 @@ st.plotly_chart(fig_avg_eval_gender)
 # 4. Tipo de Escola x Avaliação de Qualidade das Aulas
 st.subheader("Tipo de Escola x Avaliação de Qualidade das Aulas")
 fig_school_quality = px.box(
-    updated_df,
+    df,
     x="Em que tipo de escola você estudou a maior parte do Ensino médio?",
     y="Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
     title="Tipo de Escola x Qualidade das Aulas",
@@ -101,7 +101,7 @@ st.plotly_chart(fig_school_quality)
 
 # 5. Média das Avaliações do Curso por Tipo de Escola
 st.subheader("Média das Avaliações do Curso por Tipo de Escola")
-avg_evals_school = updated_df.groupby("Em que tipo de escola você estudou a maior parte do Ensino médio?")[[
+avg_evals_school = df.groupby("Em que tipo de escola você estudou a maior parte do Ensino médio?")[[
     "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
     "Avaliação do Curso [Como você avalia a infraestrutura física do seu Instituto?]",
     "Avaliação do Curso [Como você avalia o suporte acadêmico oferecido pelas disciplinas?]",
