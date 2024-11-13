@@ -18,124 +18,62 @@ def load_main_dataframe(worksheet):
 
 df = generate_sample_dataframe(100)
 
-# Streamlit app for displaying base characteristics
-st.title("Características da Base de Dados")
+st.title("Impacto das Características nas Respostas")
 
-# Distribution of Age
-st.subheader("Distribuição de Idade dos Alunos")
-fig_age = px.histogram(df, x="Idade", title="Distribuição de Idade dos Alunos", labels={"Idade": "Idade"})
-st.plotly_chart(fig_age)
-
-# Distribution by Course
-st.subheader("Distribuição de Alunos por Curso Matriculado")
-fig_course = px.histogram(
+# Impacto da Idade nas Avaliações do Curso
+st.subheader("Idade x Avaliações do Curso")
+fig_age_eval = px.scatter(
     df,
-    x="Curso Matriculado",
-    title="Distribuição de Alunos por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso"}
+    x="Idade",
+    y="Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
+    title="Idade x Qualidade das Aulas",
+    labels={"Idade": "Idade", "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]": "Qualidade das Aulas"},
+    trendline="ols",
 )
-st.plotly_chart(fig_course)
+st.plotly_chart(fig_age_eval)
 
-# Distribution by Gender
-st.subheader("Distribuição de Alunos por Gênero")
-fig_gender = px.histogram(
+# Impacto do Gênero nas Avaliações do Curso
+st.subheader("Gênero x Avaliações do Curso")
+fig_gender_eval = px.box(
     df,
     x="Gênero",
-    title="Distribuição de Alunos por Gênero",
-    labels={"Gênero": "Gênero"}
+    y="Avaliação do Curso [Como você avalia a infraestrutura física do seu Instituto?]",
+    title="Gênero x Infraestrutura Física",
+    labels={"Gênero": "Gênero", "Avaliação do Curso [Como você avalia a infraestrutura física do seu Instituto?]": "Infraestrutura Física"},
 )
-st.plotly_chart(fig_gender)
+st.plotly_chart(fig_gender_eval)
 
-# Summary Statistics Table
-st.subheader("Resumo Estatístico da Base de Dados")
-summary_stats = df.describe(include="all").transpose()
-st.dataframe(summary_stats)
-
-# Age vs. Course
-st.subheader("Idade x Curso Matriculado")
-fig_age_course = px.box(
+# Impacto do Curso Matriculado nas Respostas
+st.subheader("Curso Matriculado x Identificação com o Curso")
+fig_course_identification = px.histogram(
     df,
-    x="Curso Matriculado",
-    y="Idade",
-    title="Distribuição de Idade por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso", "Idade": "Idade"}
-)
-st.plotly_chart(fig_age_course)
-
-# Age vs. Gender
-st.subheader("Idade x Gênero")
-fig_age_gender = px.box(
-    df,
-    x="Gênero",
-    y="Idade",
-    title="Distribuição de Idade por Gênero",
-    labels={"Gênero": "Gênero", "Idade": "Idade"}
-)
-st.plotly_chart(fig_age_gender)
-
-# Course vs. Gender
-st.subheader("Curso Matriculado x Gênero")
-fig_course_gender = px.histogram(
-    df,
-    x="Curso Matriculado",
-    color="Gênero",
-    barmode="group",
-    title="Distribuição de Gênero por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso", "Gênero": "Gênero"}
-)
-st.plotly_chart(fig_course_gender)
-
-# Table: Grouped Analysis
-st.subheader("Análise Agrupada - Curso Matriculado -  Gênero Idade")
-grouped_analysis = df.groupby(["Curso Matriculado", "Gênero"])["Idade"].describe()
-st.write(grouped_analysis)
-
-# Gender vs. Years in USP
-st.subheader("Gênero x Anos na USP")
-fig_gender_years = px.box(
-    df,
-    x="Gênero",
-    y="Há quantos anos você está na USP?",
-    title="Distribuição de Anos na USP por Gênero",
-    labels={"Gênero": "Gênero", "Há quantos anos você está na USP?": "Anos na USP"}
-)
-st.plotly_chart(fig_gender_years)
-
-# Course vs. Years in USP
-st.subheader("Curso Matriculado x Anos na USP")
-fig_course_years = px.box(
-    df,
-    x="Curso Matriculado",
-    y="Há quantos anos você está na USP?",
-    title="Distribuição de Anos na USP por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso", "Há quantos anos você está na USP?": "Anos na USP"}
-)
-st.plotly_chart(fig_course_years)
-
-# Gender vs. Year of Entry
-st.subheader("Gênero x Ano de Ingresso")
-fig_gender_entry = px.histogram(
-    df,
-    x="Ano de Ingresso",
-    color="Gênero",
-    barmode="group",
-    title="Distribuição de Ano de Ingresso por Gênero",
-    labels={"Ano de Ingresso": "Ano de Ingresso", "Gênero": "Gênero"}
-)
-st.plotly_chart(fig_gender_entry)
-
-# Course vs. Year of Entry
-st.subheader("Curso Matriculado x Ano de Ingresso")
-fig_course_entry = px.histogram(
-    df,
-    x="Ano de Ingresso",
+    x="Você sente que se identifica com o curso em que está matriculado?",
     color="Curso Matriculado",
     barmode="group",
-    title="Distribuição de Ano de Ingresso por Curso Matriculado",
-    labels={"Ano de Ingresso": "Ano de Ingresso", "Curso Matriculado": "Curso"}
+    title="Curso Matriculado x Identificação",
+    labels={"Você sente que se identifica com o curso em que está matriculado?": "Identificação com o Curso", "Curso Matriculado": "Curso"},
 )
-st.plotly_chart(fig_course_entry)
+st.plotly_chart(fig_course_identification)
 
-st.subheader("Análise Agrupada: Idade x Anos na USP")
-grouped_years_age = df.groupby(["Curso Matriculado", "Gênero"])[["Idade", "Há quantos anos você está na USP?"]].mean()
-st.dataframe(grouped_years_age)
+# Anos na USP x Desempenho Acadêmico
+st.subheader("Anos na USP x Desempenho Acadêmico")
+fig_years_performance = px.box(
+    df,
+    x="Há quantos anos você está na USP?",
+    y="Como você avalia seu desempenho acadêmico em termos de notas e possibilidade de reprovações ou jubilamento?",
+    title="Anos na USP x Desempenho Acadêmico",
+    labels={"Há quantos anos você está na USP?": "Anos na USP", "Como você avalia seu desempenho acadêmico em termos de notas e possibilidade de reprovações ou jubilamento?": "Desempenho Acadêmico"},
+)
+st.plotly_chart(fig_years_performance)
+
+# Saúde Física e Mental x Características
+st.subheader("Impacto na Saúde Física e Mental x Características")
+fig_health_course = px.histogram(
+    df,
+    x="O curso tem impactado sua saúde física ou mental de alguma forma?",
+    color="Curso Matriculado",
+    barmode="group",
+    title="Impacto na Saúde x Curso Matriculado",
+    labels={"O curso tem impactado sua saúde física ou mental de alguma forma?": "Impacto na Saúde", "Curso Matriculado": "Curso"},
+)
+st.plotly_chart(fig_health_course)
