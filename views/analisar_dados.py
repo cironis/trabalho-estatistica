@@ -51,4 +51,40 @@ st.subheader("Resumo Estatístico da Base de Dados")
 summary_stats = df.describe(include="all").transpose()
 st.dataframe(summary_stats)
 
+# Age vs. Course
+st.subheader("Idade x Curso Matriculado")
+fig_age_course = px.box(
+    df,
+    x="Curso Matriculado",
+    y="Idade",
+    title="Distribuição de Idade por Curso Matriculado",
+    labels={"Curso Matriculado": "Curso", "Idade": "Idade"}
+)
+st.plotly_chart(fig_age_course)
 
+# Age vs. Gender
+st.subheader("Idade x Gênero")
+fig_age_gender = px.box(
+    df,
+    x="Gênero",
+    y="Idade",
+    title="Distribuição de Idade por Gênero",
+    labels={"Gênero": "Gênero", "Idade": "Idade"}
+)
+st.plotly_chart(fig_age_gender)
+
+# Course vs. Gender
+st.subheader("Curso Matriculado x Gênero")
+fig_course_gender = px.histogram(
+    df,
+    x="Curso Matriculado",
+    color="Gênero",
+    barmode="group",
+    title="Distribuição de Gênero por Curso Matriculado",
+    labels={"Curso Matriculado": "Curso", "Gênero": "Gênero"}
+)
+st.plotly_chart(fig_course_gender)
+
+# Table: Grouped Analysis
+st.subheader("Análise Agrupada")
+grouped_analysis = df.groupby(["Curso Matriculado", "Gênero"])["Idade"].describe()
