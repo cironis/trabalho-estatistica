@@ -6,3 +6,4 @@ PyYAML
 streamlit_authenticator
 plotly
 numpy
+statsmodels
