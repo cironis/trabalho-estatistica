@@ -64,21 +64,6 @@ fig_course_support = px.box(
 )
 st.plotly_chart(fig_course_support)
 
-# 4. Years at USP vs. Course Load Evaluation
-st.subheader("Anos na USP x Carga Horária e Ritmo")
-fig_years_load = px.scatter(
-    df,
-    x="Há quantos anos você está na USP?",
-    y="Avaliação do Curso [Como você avalia a carga horária e o ritmo do seu curso?]",
-    title="Anos na USP x Carga Horária e Ritmo",
-    labels={
-        "Há quantos anos você está na USP?": "Anos na USP",
-        "Avaliação do Curso [Como você avalia a carga horária e o ritmo do seu curso?]": "Carga Horária e Ritmo",
-    },
-    color="Gênero",
-)
-st.plotly_chart(fig_years_load)
-
 # 5. Course Planning Evaluation by Course Type
 st.subheader("Planejamento do Curso x Tipo de Curso")
 fig_course_planning = px.box(
