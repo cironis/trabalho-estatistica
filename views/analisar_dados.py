@@ -9,7 +9,7 @@ from datetime import datetime
 from auxiliar import *
 import statsmodels
 
-st.set_page_config(page_title="Trabalho de estatística", page_icon="🕒", layout="wide")
+st.set_page_config(page_title="Análise dos dados", page_icon="🕒", layout="wide")
 
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)

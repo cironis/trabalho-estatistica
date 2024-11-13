@@ -8,7 +8,7 @@ import numpy as np
 from datetime import datetime
 from auxiliar import *
 
-st.set_page_config(page_title="Trabalho de estatística", page_icon="🕒", layout="wide")
+st.set_page_config(page_title="Características da População", page_icon="🕒", layout="wide")
 
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)
@@ -144,7 +144,7 @@ st.dataframe(grouped_years_age)
 # 1. Distribuição do Tipo de Escola
 st.subheader("Distribuição por Tipo de Escola no Ensino Médio")
 fig_school_type = px.histogram(
-    updated_df,
+    df,
     x="Em que tipo de escola você estudou a maior parte do Ensino médio?",
     title="Distribuição por Tipo de Escola no Ensino Médio",
     labels={"Em que tipo de escola você estudou a maior parte do Ensino médio?": "Tipo de Escola"},
@@ -154,7 +154,7 @@ st.plotly_chart(fig_school_type)
 # 2. Tipo de Escola x Curso Matriculado
 st.subheader("Tipo de Escola x Curso Matriculado")
 fig_school_course = px.histogram(
-    updated_df,
+    df,
     x="Curso Matriculado",
     color="Em que tipo de escola você estudou a maior parte do Ensino médio?",
     barmode="group",
@@ -169,7 +169,7 @@ st.plotly_chart(fig_school_course)
 # 3. Tipo de Escola x Gênero
 st.subheader("Tipo de Escola x Gênero")
 fig_school_gender = px.histogram(
-    updated_df,
+    df,
     x="Gênero",
     color="Em que tipo de escola você estudou a maior parte do Ensino médio?",
     barmode="group",
