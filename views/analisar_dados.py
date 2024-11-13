@@ -21,21 +21,6 @@ df = generate_sample_dataframe(100)
 
 # Analyzing course evaluation questions and correlating them with other characteristics
 
-# 1. Age vs. Course Evaluation (Quality of Lessons)
-st.subheader("Idade x Qualidade das Aulas")
-fig_age_quality = px.scatter(
-    df,
-    x="Idade",
-    y="Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
-    title="Idade x Qualidade das Aulas",
-    labels={
-        "Idade": "Idade",
-        "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]": "Qualidade das Aulas",
-    },
-    color="Curso Matriculado",
-)
-st.plotly_chart(fig_age_quality)
-
 # 2. Gender vs. Course Evaluation (Infrastructure)
 st.subheader("Gênero x Infraestrutura Física")
 fig_gender_infrastructure = px.box(
