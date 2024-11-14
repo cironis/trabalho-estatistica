@@ -19,4 +19,6 @@ st.title("Dados Coletados")
 
 df = load_main_dataframe("base_respostas")
 
+st.markdown(f"# Quantidade de respostas coletadas: {df.shape[0]}")
+
 st.dataframe(df)
