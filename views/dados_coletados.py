@@ -32,5 +32,5 @@ if quantitade_de_respostas > 0:
     st.subheader("Quantidade de respostas por Instituto")
     st.dataframe(contagem_de_institutos)
 
-    st.markdown("# Tabela com as respostas")
-    st.dataframe(df)
+st.markdown("# Tabela com as respostas")
+st.dataframe(df)
