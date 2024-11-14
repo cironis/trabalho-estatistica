@@ -1,6 +1,14 @@
 import streamlit as st
 
 # --- PAGE SETUP ---
+
+dados_coletados = st.Page(
+    "views/dados_coletados.py",
+    title="Dados Coletados",
+    icon=":material/overview:",
+    default=True,
+)
+
 analisar_dados = st.Page(
     "views/analisar_dados.py",
     title="Análise de satisfação",
@@ -20,7 +28,7 @@ caracteristicas = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Visualização": [caracteristicas,analisar_dados]
+        "Visualização": [dados_coletados,caracteristicas,analisar_dados]
     }
 )
 
