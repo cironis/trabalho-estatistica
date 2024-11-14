@@ -7,7 +7,7 @@ def generate_sample_dataframe(sample_size=100):
     """
     Generates a sample dataframe with random responses based on the defined survey structure.
     Includes a new question about the type of high school attended.
-    
+
     Parameters:
         sample_size (int): Number of random responses to generate.
 
