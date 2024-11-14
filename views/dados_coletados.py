@@ -22,6 +22,7 @@ quantitade_de_respostas = df.shape[0]
 
 st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}")
 
+df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
 df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
 df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
