@@ -1,4 +1,3 @@
-
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
@@ -15,7 +14,7 @@ def load_main_dataframe(worksheet):
     df = conn.read(worksheet=worksheet)
     return df
 
-st.title("Dados Coletados")
+st.title("Dados Coletados da Pesquisa")
 
 df = load_main_dataframe("base_respostas")
 quantitade_de_respostas = df.shape[0]
@@ -27,7 +26,7 @@ if quantitade_de_respostas > 0:
     df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
     df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
-    contagem_de_institutos = df.groupby('instituto').count().sort_values(ascending=False)
+    contagem_de_institutos = df.groupby(['instituto'])['instituto'].count().sort_values(ascending=False)
 
     st.subheader("Quantidade de respostas por Instituto")
     st.dataframe(contagem_de_institutos)
