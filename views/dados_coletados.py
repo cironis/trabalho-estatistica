@@ -21,15 +21,29 @@ quantitade_de_respostas = df.shape[0]
 
 st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}")
 
-if quantitade_de_respostas > 0:
-    df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
-    df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
-    df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
+col_1,col_2 = st.columns(2)
 
-    contagem_de_institutos = df.groupby(['instituto'])['instituto'].count().sort_values(ascending=False)
+df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
+df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
+df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
-    st.subheader("Quantidade de respostas por Instituto")
+contagem_de_institutos = df.groupby(['instituto'])['instituto'].count().sort_values(ascending=False)
+st.subheader("Quantidade de respostas por Instituto")
+
+with col_1:
+    
     st.dataframe(contagem_de_institutos)
+
+with col_2:
+    fig = px.bar(
+    x=contagem_de_institutos.index,
+    y=contagem_de_institutos.values,
+    labels={'x': 'Instituto', 'y': 'Count'},
+    title='Count of Institutes'
+    )
+
+    fig.update_layout(xaxis_title="Instituto", yaxis_title="Count"
+    st.plotly_chart(fig)
 
 st.markdown("# Tabela com as respostas")
 st.dataframe(df)
