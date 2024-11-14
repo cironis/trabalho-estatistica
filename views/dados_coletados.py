@@ -14,12 +14,12 @@ def load_main_dataframe(worksheet):
     df = conn.read(worksheet=worksheet)
     return df
 
-st.title("Dados Coletados da Pesquisa")
+st.title("Dados Coletados")
 
 df = load_main_dataframe("base_respostas")
 quantitade_de_respostas = df.shape[0]
 
-st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}")
+st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}/100")
 
 col_1,col_2 = st.columns(2)
 
@@ -28,13 +28,14 @@ df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
 df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
 contagem_de_institutos = df.groupby(['instituto'])['instituto'].count().sort_values(ascending=False)
+
 st.subheader("Quantidade de respostas por Instituto")
 
-with col_1:
+with col_2:
     
     st.dataframe(contagem_de_institutos)
 
-with col_2:
+with col_1:
     fig = px.bar(
     x=contagem_de_institutos.index,
     y=contagem_de_institutos.values,
