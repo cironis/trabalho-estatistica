@@ -22,14 +22,15 @@ quantitade_de_respostas = df.shape[0]
 
 st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}")
 
-df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
-df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
-df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
+if quantitade_de_respostas > 0:
+    df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
+    df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
+    df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
-contagem_de_institutos = df.groupby('instituto').count().sort_values(ascending=False)
+    contagem_de_institutos = df.groupby('instituto').count().sort_values(ascending=False)
 
-st.subheader("Quantidade de respostas por Instituto")
-st.dataframe(contagem_de_institutos)
+    st.subheader("Quantidade de respostas por Instituto")
+    st.dataframe(contagem_de_institutos)
 
-st.markdown("# Tabela com as respostas")
-st.dataframe(df)
+    st.markdown("# Tabela com as respostas")
+    st.dataframe(df)
