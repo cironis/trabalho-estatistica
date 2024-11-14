@@ -18,9 +18,11 @@ def load_main_dataframe(worksheet):
 st.title("Dados Coletados")
 
 df = load_main_dataframe("base_respostas")
+quantitade_de_respostas = df.shape[0]
 
-st.markdown(f"## Quantidade de respostas coletadas: {df.shape[0]}")
+st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}")
 
+df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
 df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
 contagem_de_institutos = df.groupby('instituto').count().sort_values(ascending=False)
