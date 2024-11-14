@@ -42,7 +42,7 @@ with col_2:
     title='Count of Institutes'
     )
 
-    fig.update_layout(xaxis_title="Instituto", yaxis_title="Count"
+    fig.update_layout(xaxis_title="Instituto", yaxis_title="Count")
     st.plotly_chart(fig)
 
 st.markdown("# Tabela com as respostas")
