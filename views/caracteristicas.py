@@ -18,7 +18,7 @@ def load_main_dataframe(worksheet):
 df = generate_sample_dataframe(100)
 
 # Streamlit app for displaying base characteristics
-st.title("Descrição da População")
+st.title("Descrição da População (sample data)")
 
 # Distribution of Age
 st.subheader("Distribuição de Idade dos Alunos")

@@ -8,7 +8,7 @@ import numpy as np
 from datetime import datetime
 from auxiliar import *
 
-st.set_page_config(page_title="Características da População", page_icon="🕒", layout="wide")
+st.set_page_config(page_title="Dados coletados", page_icon="🕒", layout="wide")
 
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)

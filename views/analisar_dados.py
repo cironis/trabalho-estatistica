@@ -10,7 +10,7 @@ from auxiliar import *
 import statsmodels
 
 st.set_page_config(page_title="Análise dos dados", page_icon="🕒", layout="wide")
-
+st.title("Análise dos dados (sample data)")
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)
     df = conn.read(worksheet=worksheet)
