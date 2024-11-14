@@ -21,7 +21,7 @@ df = load_main_dataframe("base_respostas")
 
 st.markdown(f"## Quantidade de respostas coletadas: {df.shape[0]}")
 
-df['instituto'] = df['Institute_Graduation'].str.split(' - ').str[0]
+df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
 
 contagem_de_institutos = df.groupby('instituto').count().sort_values(ascending=False)
 
