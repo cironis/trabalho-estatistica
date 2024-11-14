@@ -15,6 +15,8 @@ def load_main_dataframe(worksheet):
     df = conn.read(worksheet=worksheet)
     return df
 
+st.title("Dados Coletados")
+
 df = load_main_dataframe("base_respostas")
 
 st.dataframe(df)
