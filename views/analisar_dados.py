@@ -9,15 +9,19 @@ from datetime import datetime
 from auxiliar import *
 import statsmodels
 
-st.set_page_config(page_title="Análise dos dados", page_icon="🕒", layout="wide")
-st.title("Análise dos dados (sample data)")
+st.set_page_config(page_title="Análise das respostas", page_icon="🕒", layout="wide")
+st.title("Análise das respostas")
+
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)
     df = conn.read(worksheet=worksheet)
     return df
 
-
-df = generate_sample_dataframe(100)
+df = load_main_dataframe("base_respostas")
+df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
+df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
+df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
+# df = generate_sample_dataframe(100) # sample data
 
 # Analyzing course evaluation questions and correlating them with other characteristics
 

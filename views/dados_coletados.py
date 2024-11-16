@@ -32,7 +32,7 @@ contagem_de_institutos = df.groupby(['instituto'])['instituto'].count().sort_val
 st.subheader("Quantidade de respostas por Instituto")
 
 with col_2:
-    
+
     st.dataframe(contagem_de_institutos)
 
 with col_1:
