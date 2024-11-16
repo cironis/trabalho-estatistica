@@ -11,13 +11,13 @@ dados_coletados = st.Page(
 
 analisar_dados = st.Page(
     "views/analisar_dados.py",
-    title="Análise de satisfação (sample data)",
+    title="Análise de satisfação",
     icon=":material/overview:",
 )
 
 caracteristicas = st.Page(
     "views/caracteristicas.py",
-    title="Características da População (sample data)",
+    title="Características da População",
     icon=":material/overview:",
 )
 
