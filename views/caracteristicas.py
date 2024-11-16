@@ -15,10 +15,30 @@ def load_main_dataframe(worksheet):
     df = conn.read(worksheet=worksheet)
     return df
 
-df = generate_sample_dataframe(100)
+df = load_main_dataframe("base_respostas")
+df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
+df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
+df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
+
+# df = generate_sample_dataframe(100)
 
 # Streamlit app for displaying base characteristics
-st.title("Descrição da População (sample data)")
+st.title("Descrição da População")
+
+# Distribution of Age
+st.subheader("Distribuição por instituto")
+fig_age = px.histogram(df, x="instituto", title="Distribuição por Instituto", labels={"Instituto": "Contagem"})
+st.plotly_chart(fig_age)
+
+# Distribution by Course
+st.subheader("Distribuição de Alunos por Curso Matriculado")
+fig_course = px.histogram(
+    df,
+    x="Curso Matriculado",
+    title="Distribuição de Alunos por Curso Matriculado",
+    labels={"Curso Matriculado": "Curso"}
+)
+st.plotly_chart(fig_course)
 
 # Distribution of Age
 st.subheader("Distribuição de Idade dos Alunos")
