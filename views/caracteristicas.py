@@ -45,16 +45,6 @@ st.subheader("Distribuição de Idade dos Alunos")
 fig_age = px.histogram(df, x="Idade", title="Distribuição de Idade dos Alunos", labels={"Idade": "Idade"})
 st.plotly_chart(fig_age)
 
-# Distribution by Course
-st.subheader("Distribuição de Alunos por Curso Matriculado")
-fig_course = px.histogram(
-    df,
-    x="Curso Matriculado",
-    title="Distribuição de Alunos por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso"}
-)
-st.plotly_chart(fig_course)
-
 # Distribution by Gender
 st.subheader("Distribuição de Alunos por Gênero")
 fig_gender = px.histogram(
