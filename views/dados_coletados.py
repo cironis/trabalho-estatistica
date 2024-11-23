@@ -22,10 +22,10 @@ quantitade_de_respostas = df.shape[0]
 st.markdown(f"## Quantidade de respostas coletadas: {quantitade_de_respostas}/100")
 
 # Convert 'timestamp' column to datetime
-df['timestamp'] = pd.to_datetime(df['timestamp'])
+df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 
 # Extract the day in dd/mm/yyyy format
-df['day'] = df['timestamp'].dt.strftime('%d/%m/%Y')
+df['day'] = df['Timestamp'].dt.strftime('%d/%m/%Y')
 
 # Group by day and count entries
 daily_counts = df.groupby('day').size().reset_index(name='count')
