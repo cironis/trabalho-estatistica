@@ -77,6 +77,8 @@ fig.update_layout(
     legend=dict(orientation='h', y=-0.2, x=0.5, xanchor='center'),
 )
 
+st.title("Respostas acumuladas e respostas por dia")
+st.plotly_chart(fig)
 
 col_1,col_2 = st.columns(2)
 
