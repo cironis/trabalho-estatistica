@@ -81,10 +81,10 @@ st.write(explanation)
 
 # Exibir DataFrames
 st.header("Tabela de Frequência Observada")
-st.dataframe(grouped_contingency_table, use_container_width=True)
+st.dataframe(grouped_contingency_table, use_container_width=True,hide_index=True)
 
 st.header("Frequências Esperadas")
-st.dataframe(expected_df, use_container_width=True)
+st.dataframe(expected_df, use_container_width=True,hide_index=True)
 
 st.header("Resultados do Teste Qui-quadrado")
-st.dataframe(chi2_results, use_container_width=True)
+st.dataframe(chi2_results, use_container_width=True,hide_index=True)
