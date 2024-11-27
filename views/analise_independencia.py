@@ -14,7 +14,8 @@ selected_option = st.selectbox(
     ["Desempenho Acadêmico X Qualidade das Aulas",
      "Planejamento Alinhado X Preparação para o Mercados",
      "Identificação com o Curso X Expectativas Atendidas",
-     "Impacto na Saúde X Expectativas Atendidas"
+     "Impacto na Saúde X Expectativas Atendidas",
+     "Infraestrutura Física X Suporte Acadêmico"
      ]
 )
 
@@ -186,6 +187,50 @@ elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
     - As respostas originais foram agrupadas em duas categorias:
         - **"Nada ou Parcialmente Atendidas"**: Inclui "Não, estou completamente decepcionada." e "Em parte, mas há aspectos que me decepcionaram.".
         - **"Atendidas"**: Representa "Sim, está dentro ou acima do esperado.".
+    """
+
+
+elif selected_option == "Infraestrutura Física X Suporte Acadêmico":
+    # Passo 2: Definir as colunas para análise
+    column1 = 'Avaliação do Curso [Como você avalia a infraestrutura física do seu Instituto?]'
+    column2 = 'Avaliação do Curso [Como você avalia o suporte acadêmico oferecido pelas disciplinas?]'
+
+    new_column_1 = 'Infraestrutura Física'
+    new_column_2 = 'Suporte Acadêmico'
+
+    # Passo 3: Agrupar valores para "Infraestrutura Física"
+    infrastructure_mapping = {
+        0: "Insuficiente",
+        1: "Insuficiente",
+        2: "Insuficiente",
+        3: "Adequada",
+        4: "Adequada",
+        5: "Adequada"
+    }
+    filtered_df[new_column_1] = filtered_df[column1].map(infrastructure_mapping)
+
+    # Passo 4: Agrupar valores para "Suporte Acadêmico"
+    academic_support_mapping = {
+        0: "Insuficiente",
+        1: "Insuficiente",
+        2: "Insuficiente",
+        3: "Adequado",
+        4: "Adequado",
+        5: "Adequado"
+    }
+    filtered_df[new_column_2] = filtered_df[column2].map(academic_support_mapping)
+
+    explanation = """
+    ### Redução de Categorias
+    - **Infraestrutura Física**:
+    - As avaliações de 0 a 5 foram agrupadas em duas categorias:
+        - **"Insuficiente"**: Inclui as avaliações 0, 1 e 2, indicando infraestrutura inadequada.
+        - **"Adequada"**: Inclui as avaliações 3, 4 e 5, indicando infraestrutura satisfatória.
+
+    - **Suporte Acadêmico**:
+    - As avaliações de 0 a 5 foram agrupadas em duas categorias:
+        - **"Insuficiente"**: Inclui as avaliações 0, 1 e 2, indicando suporte inadequado.
+        - **"Adequado"**: Inclui as avaliações 3, 4 e 5, indicando suporte satisfatório.
     """
 
 
