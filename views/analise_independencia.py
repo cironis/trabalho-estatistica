@@ -11,7 +11,9 @@ st.set_page_config(page_title="Análise de Independência", page_icon="📊", la
 
 selected_option = st.selectbox(
     "Selecione uma hipótese:",
-    ["Desempenho Acadêmico X Qualidade das Aulas"]
+    ["Desempenho Acadêmico X Qualidade das Aulas",
+     "Planejamento Alinhado X Preparação para o Mercados"
+     ]
 )
 
 
@@ -57,6 +59,43 @@ if selected_option == "Desempenho Acadêmico X Qualidade das Aulas":
     quality_mapping = {0: "Baixa", 1: "Baixa", 2: "Baixa",
                     3: "Alta", 4: "Alta", 5: "Alta"}
     filtered_df["Qualidade das Aulas"] = filtered_df[column2].map(quality_mapping)
+
+elif selected_option == "Planejamento Alinhado X Preparação para o Mercados":
+
+    # Step 2: Define the columns to analyze
+    column1 = 'Avaliação do Curso [O planejamento do seu curso é alinhado com sua futura área de atuação?]'
+    column2 = 'Avaliação do Curso [Você se sente preparado para o mercado de trabalho?]'
+
+    # Passo 2: Definir as colunas para análise
+    column1 = 'Avaliação do Curso [O planejamento do seu curso é alinhado com sua futura área de atuação?]'
+    column2 = 'Avaliação do Curso [Você se sente preparado para o mercado de trabalho?]'
+
+    new_column_1 = 'Planejamento Alinhado'
+    new_column_2 = 'Preparação para o Mercado'
+
+    # Passo 3: Agrupar valores para "Planejamento Alinhado"
+    planning_mapping = {
+        0: "Desalinhado",
+        1: "Desalinhado",
+        2: "Desalinhado",
+        3: "Alinhado",
+        4: "Alinhado",
+        5: "Alinhado"
+    }
+    filtered_df[new_column_1] = filtered_df[column1].map(planning_mapping)
+
+    # Passo 4: Agrupar valores para "Preparação para o Mercado"
+    market_mapping = {
+        0: "Não Preparado",
+        1: "Não Preparado",
+        2: "Não Preparado",
+        3: "Preparado",
+        4: "Preparado",
+        5: "Preparado"
+    }
+    filtered_df[new_column_2] = filtered_df[column2].map(market_mapping)
+
+
 
 # Passo 5: Criar a tabela de contingência agrupada
 grouped_contingency_table = pd.crosstab(filtered_df[new_column_1], filtered_df[new_column_2])
