@@ -161,7 +161,7 @@ elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
     # Passo 3: Agrupar valores para "Impacto na Saúde"
     health_impact_mapping = {
         "Em parte, sinto leves impactos ocasionais.": "Impacto Leve",
-        "Não, consigo manter meu bem-estar físico e mental.": "Sem Impacto",
+        "Não, consigo manter meu bem-estar físico e mental.": "Impacto Leve",
         "Sim, tem afetado minha saúde física e/ou mental...": "Impacto Significativo"
     }
     filtered_df[new_column_1] = filtered_df[column1].map(health_impact_mapping)
@@ -179,7 +179,7 @@ elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
     - **Impacto na Saúde**:
     - As respostas originais foram agrupadas em três categorias:
         - **"Impacto Leve"**: Inclui "Em parte, sinto leves impactos ocasionais.".
-        - **"Sem Impacto"**: Inclui "Não, consigo manter meu bem-estar físico e mental.".
+        - **"Impacto Leve"**: Inclui "Não, consigo manter meu bem-estar físico e mental.".
         - **"Impacto Significativo"**: Inclui "Sim, tem afetado minha saúde física e/ou mental...".
 
     - **Expectativas Atendidas**:
