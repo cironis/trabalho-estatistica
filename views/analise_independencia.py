@@ -15,7 +15,8 @@ selected_option = st.selectbox(
      "Planejamento Alinhado X Preparação para o Mercados",
      "Identificação com o Curso X Expectativas Atendidas",
      "Impacto na Saúde X Expectativas Atendidas",
-     "Infraestrutura Física X Suporte Acadêmico"
+     "Infraestrutura Física X Suporte Acadêmico",
+     "Desempenho Acadêmico X Tipo de Escola"
      ]
 )
 
@@ -231,6 +232,43 @@ elif selected_option == "Infraestrutura Física X Suporte Acadêmico":
     - As avaliações de 0 a 5 foram agrupadas em duas categorias:
         - **"Insuficiente"**: Inclui as avaliações 0, 1 e 2, indicando suporte inadequado.
         - **"Adequado"**: Inclui as avaliações 3, 4 e 5, indicando suporte satisfatório.
+    """
+
+elif selected_option == "Desempenho Acadêmico X Tipo de Escola":
+    # Passo 2: Definir as colunas para análise
+    column1 = 'Como você avalia seu desempenho acadêmico em termos de notas e possibilidade de reprovações ou jubilamento?'
+    column2 = 'Em que tipo de escola você estudou a maior parte do Ensino médio?'
+
+    new_column_1 = 'Desempenho Acadêmico'
+    new_column_2 = 'Tipo de Escola'
+
+    # Passo 3: Agrupar valores para "Desempenho Acadêmico"
+    performance_mapping = {
+            "Estou com dificuldades e em risco de reprovações ou jubilamento.": "Baixo ou Mediano",
+            "Minhas notas são medianas, mas consigo me manter regular.": "Baixo ou Mediano",
+            "Tenho boas notas e estou longe de risco de jubilamento.": "Boas Notas"
+        }
+    filtered_df[new_column_1] = filtered_df[column1].map(performance_mapping)
+
+    # Passo 4: Agrupar valores para "Tipo de Escola"
+    school_type_mapping = {
+        "Mista (alternou entre pública e privada)": "Pública/Mista",
+        "Privada": "Privada",
+        "Pública": "Pública/Mista"
+    }
+    filtered_df[new_column_2] = filtered_df[column2].map(school_type_mapping)
+
+    explanation = """
+    ### Redução de Categorias
+    - **Desempenho Acadêmico**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Baixo ou Mediano"**: Inclui "Estou com dificuldades e em risco de reprovações ou jubilamento." e "Minhas notas são medianas, mas consigo me manter regular.".
+        - **"Boas Notas"**: Representa "Tenho boas notas e estou longe de risco de jubilamento.".
+
+    - **Tipo de Escola**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Pública/Mista"**: Inclui "Pública" e "Mista (alternou entre pública e privada).".
+        - **"Privada"**: Representa "Privada".
     """
 
 
