@@ -75,8 +75,7 @@ st.header("Tabela de Frequência Observada")
 st.dataframe(grouped_contingency_table)
 
 st.header("Frequências Esperadas")
-styled_df = expected_df.style.background_gradient(cmap="Blues").format("{:.2f}")
-st.dataframe(styled_df, use_container_width=True, height=600)
+st.dataframe(expected_df, use_container_width=True)
 
 st.header("Resultados do Teste Qui-quadrado")
 st.dataframe(chi2_results)
