@@ -12,7 +12,8 @@ st.set_page_config(page_title="Análise de Independência", page_icon="📊", la
 selected_option = st.selectbox(
     "Selecione uma hipótese:",
     ["Desempenho Acadêmico X Qualidade das Aulas",
-     "Planejamento Alinhado X Preparação para o Mercados"
+     "Planejamento Alinhado X Preparação para o Mercados",
+     "Identificação com o Curso X Expectativas Atendidas"
      ]
 )
 
@@ -108,6 +109,44 @@ elif selected_option == "Planejamento Alinhado X Preparação para o Mercados":
                     - **"Preparado"**: Inclui as avaliações 3, 4 e 5, indicando percepção positiva de preparo.
                 """
 
+elif selected_option == "Identificação com o Curso X Expectativas Atendidas":
+    # Passo 2: Definir as colunas para análise
+    column1 = 'Você sente que se identifica com o curso em que está matriculado?'
+    column2 = 'O curso tem atendido às suas expectativas desde que você iniciou?'
+
+    new_column_1 = 'Identificação com o Curso'
+    new_column_2 = 'Expectativas Atendidas'
+
+    # Passo 3: Agrupar valores para "Identificação com o Curso"
+    identification_mapping = {
+        "Em parte, mas tenho dúvidas.": "Parcial",
+        "Sim, me identifico completamente.": "Total"
+    }
+    filtered_df[new_column_1] = filtered_df[column1].map(identification_mapping)
+
+    # Passo 4: Agrupar valores para "Expectativas Atendidas"
+    expectation_mapping = {
+        "Não, estou completamente decepcionada.": "Nada ou Parcialmente Atendidas",
+        "Em parte, mas há aspectos que me decepcionaram.": "Nada ou Parcialmente Atendidas",
+        "Sim, está dentro ou acima do esperado.": "Atendidas"
+    }
+    filtered_df[new_column_2] = filtered_df[column2].map(expectation_mapping)
+
+    explanation = """
+    ### Redução de Categorias
+    - **Identificação com o Curso**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Parcial"**: Inclui respostas como "Em parte, mas tenho dúvidas.".
+        - **"Total"**: Representa alunos que disseram "Sim, me identifico completamente.".
+
+    - **Expectativas Atendidas**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Nada ou Parcialmente Atendidas"**: Inclui "Não, estou completamente decepcionada." e "Em parte, mas há aspectos que me decepcionaram.".
+        - **"Atendidas"**: Representa "Sim, está dentro ou acima do esperado.".
+    """
+
+    # Step 5: Create the grouped contingency table
+    grouped_contingency_table = pd.crosstab(filtered_df[new_column_1], filtered_df[new_column_2])
 
 
 # Passo 5: Criar a tabela de contingência agrupada
