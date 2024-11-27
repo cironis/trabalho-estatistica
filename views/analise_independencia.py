@@ -180,7 +180,7 @@ elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
     - As respostas originais foram agrupadas em três categorias:
         - **"Impacto Leve"**: Inclui "Em parte, sinto leves impactos ocasionais.".
         - **"Impacto Leve"**: Inclui "Não, consigo manter meu bem-estar físico e mental.".
-        - **"Impacto Significativo"**: Inclui "Sim, tem afetado minha saúde física e/ou mental...".
+        - **"Impacto Significativo"**: Inclui "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.".
 
     - **Expectativas Atendidas**:
     - As respostas originais foram agrupadas em duas categorias:
