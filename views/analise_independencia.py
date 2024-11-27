@@ -7,7 +7,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Análise de Independência - Testes", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Análise de Independência", page_icon="📊", layout="wide")
 
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)
@@ -71,37 +71,11 @@ st.title("Análise de Independência - Teste Qui-quadrado")
 st.write(explanation)
 
 # Exibir DataFrames
-st.header("Tabela de Contingência Agrupada")
+st.header("Tabela de Frequência Observada")
 st.dataframe(grouped_contingency_table)
-
-st.header("Resultados do Teste Qui-quadrado")
-st.dataframe(chi2_results)
 
 st.header("Frequências Esperadas")
 st.dataframe(expected_df)
 
-# Mapa de calor com Plotly
-st.header("Mapa de Calor da Tabela de Contingência")
-heatmap = go.Figure(data=go.Heatmap(
-    z=grouped_contingency_table.values,
-    x=grouped_contingency_table.columns,
-    y=grouped_contingency_table.index,
-    colorscale="Blues",
-    showscale=True
-))
-heatmap.update_layout(
-    title="Mapa de Calor da Tabela de Contingência",
-    xaxis_title="Qualidade das Aulas",
-    yaxis_title="Desempenho Acadêmico"
-)
-st.plotly_chart(heatmap)
-
-# Gráfico de barras empilhado com Plotly
-st.header("Gráfico de Barras Empilhadas da Tabela de Contingência")
-stacked_bar = px.bar(
-    grouped_contingency_table,
-    orientation='h',
-    labels={"index": "Desempenho Acadêmico", "value": "Frequência"},
-    title="Gráfico de Barras Empilhadas da Tabela de Contingência"
-)
-st.plotly_chart(stacked_bar)
+st.header("Resultados do Teste Qui-quadrado")
+st.dataframe(chi2_results)
