@@ -162,7 +162,7 @@ elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
     health_impact_mapping = {
         "Em parte, sinto leves impactos ocasionais.": "Impacto Leve",
         "Não, consigo manter meu bem-estar físico e mental.": "Impacto Leve",
-        "Sim, tem afetado minha saúde física e/ou mental...": "Impacto Significativo"
+        "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.": "Impacto Significativo"
     }
     filtered_df[new_column_1] = filtered_df[column1].map(health_impact_mapping)
 
