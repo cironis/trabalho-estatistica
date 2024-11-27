@@ -20,6 +20,11 @@ caracteristicas = st.Page(
     title="Características da População",
     icon=":material/overview:",
 )
+analise_independencia = st.Page(
+    "views/analise_independencia.py",
+    title="Análise de Independência",
+    icon=":material/overview:",
+)
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
@@ -28,7 +33,7 @@ caracteristicas = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Visualização": [dados_coletados,caracteristicas,analisar_dados]
+        "Visualização": [dados_coletados,caracteristicas,analisar_dados,analise_independencia]
     }
 )
 
