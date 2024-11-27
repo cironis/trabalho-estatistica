@@ -94,6 +94,19 @@ elif selected_option == "Planejamento Alinhado X Preparação para o Mercados":
         5: "Preparado"
     }
     filtered_df[new_column_2] = filtered_df[column2].map(market_mapping)
+    
+    explanation = """
+                ### Redução de Categorias
+                - **Planejamento Alinhado**:
+                - As avaliações de 0 a 5 foram agrupadas em duas categorias:
+                    - **"Desalinhado"**: Inclui as avaliações 0, 1 e 2, indicando percepção negativa de alinhamento.
+                    - **"Alinhado"**: Inclui as avaliações 3, 4 e 5, indicando percepção positiva de alinhamento.
+
+                - **Preparação para o Mercado**:
+                - As avaliações de 0 a 5 foram agrupadas em duas categorias:
+                    - **"Não Preparado"**: Inclui as avaliações 0, 1 e 2, indicando percepção negativa de preparo.
+                    - **"Preparado"**: Inclui as avaliações 3, 4 e 5, indicando percepção positiva de preparo.
+                """
 
 
 
