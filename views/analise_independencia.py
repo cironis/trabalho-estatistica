@@ -13,7 +13,8 @@ selected_option = st.selectbox(
     "Selecione uma hipótese:",
     ["Desempenho Acadêmico X Qualidade das Aulas",
      "Planejamento Alinhado X Preparação para o Mercados",
-     "Identificação com o Curso X Expectativas Atendidas"
+     "Identificação com o Curso X Expectativas Atendidas",
+     "Impacto na Saúde X Expectativas Atendidas"
      ]
 )
 
@@ -110,6 +111,7 @@ elif selected_option == "Planejamento Alinhado X Preparação para o Mercados":
                 """
 
 elif selected_option == "Identificação com o Curso X Expectativas Atendidas":
+
     # Passo 2: Definir as colunas para análise
     column1 = 'Você sente que se identifica com o curso em que está matriculado?'
     column2 = 'O curso tem atendido às suas expectativas desde que você iniciou?'
@@ -147,6 +149,44 @@ elif selected_option == "Identificação com o Curso X Expectativas Atendidas":
 
     # Step 5: Create the grouped contingency table
     grouped_contingency_table = pd.crosstab(filtered_df[new_column_1], filtered_df[new_column_2])
+
+elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
+    # Passo 2: Definir as colunas para análise
+    column1 = 'O curso tem impactado sua saúde física ou mental de alguma forma?'
+    column2 = 'O curso tem atendido às suas expectativas desde que você iniciou?'
+
+    new_column_1 = 'Impacto na Saúde'
+    new_column_2 = 'Expectativas Atendidas'
+
+    # Passo 3: Agrupar valores para "Impacto na Saúde"
+    health_impact_mapping = {
+        "Em parte, sinto leves impactos ocasionais.": "Impacto Leve",
+        "Não, consigo manter meu bem-estar físico e mental.": "Sem Impacto",
+        "Sim, tem afetado minha saúde física e/ou mental...": "Impacto Significativo"
+    }
+    filtered_df[new_column_1] = filtered_df[column1].map(health_impact_mapping)
+
+    # Passo 4: Agrupar valores para "Expectativas Atendidas"
+    expectation_mapping = {
+        "Não, estou completamente decepcionada.": "Nada ou Parcialmente Atendidas",
+        "Em parte, mas há aspectos que me decepcionaram.": "Nada ou Parcialmente Atendidas",
+        "Sim, está dentro ou acima do esperado.": "Atendidas"
+    }
+    filtered_df[new_column_2] = filtered_df[column2].map(expectation_mapping)
+
+    explanation = """
+    ### Redução de Categorias
+    - **Impacto na Saúde**:
+    - As respostas originais foram agrupadas em três categorias:
+        - **"Impacto Leve"**: Inclui "Em parte, sinto leves impactos ocasionais.".
+        - **"Sem Impacto"**: Inclui "Não, consigo manter meu bem-estar físico e mental.".
+        - **"Impacto Significativo"**: Inclui "Sim, tem afetado minha saúde física e/ou mental...".
+
+    - **Expectativas Atendidas**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Nada ou Parcialmente Atendidas"**: Inclui "Não, estou completamente decepcionada." e "Em parte, mas há aspectos que me decepcionaram.".
+        - **"Atendidas"**: Representa "Sim, está dentro ou acima do esperado.".
+    """
 
 
 # Passo 5: Criar a tabela de contingência agrupada
