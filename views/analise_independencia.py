@@ -7,7 +7,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Análise de Independência", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Análise de Independência - Testes", page_icon="📊", layout="wide")
 
 def load_main_dataframe(worksheet):
     conn = st.connection("gsheets", type=GSheetsConnection)
