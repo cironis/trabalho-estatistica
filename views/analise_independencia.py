@@ -45,7 +45,7 @@ if selected_option == "Desempenho Acadêmico X Qualidade das Aulas":
         "Tenho boas notas e estou longe de risco de jubilamento.": "Boas Notas"
     }
     filtered_df["Desempenho Acadêmico"] = filtered_df[column1].map(performance_mapping)
-    
+
     explanation = """
                 ### Redução de Categorias
                 - **Desempenho Acadêmico**:
@@ -98,7 +98,7 @@ elif selected_option == "Planejamento Alinhado X Preparação para o Mercados":
         5: "Preparado"
     }
     filtered_df[new_column_2] = filtered_df[column2].map(market_mapping)
-    
+
     explanation = """
                 ### Redução de Categorias
                 - **Planejamento Alinhado**:
@@ -152,42 +152,39 @@ elif selected_option == "Identificação com o Curso X Expectativas Atendidas":
     # Step 5: Create the grouped contingency table
     grouped_contingency_table = pd.crosstab(filtered_df[new_column_1], filtered_df[new_column_2])
 
-elif selected_option == "Impacto na Saúde X Expectativas Atendidas":
+elif selected_option == "Impacto na Saúde X Equilíbrio entre vida pessoal e acadêmica":
     # Passo 2: Definir as colunas para análise
     column1 = 'O curso tem impactado sua saúde física ou mental de alguma forma?'
-    column2 = 'O curso tem atendido às suas expectativas desde que você iniciou?'
+    column2 = 'Você consegue equilibrar suas responsabilidades acadêmicas com sua vida pessoal?'
 
-    new_column_1 = 'Impacto na Saúde'
-    new_column_2 = 'Expectativas Atendidas'
+    new_column_1 = 'Impacto na saúde Saúde Mental'
+    new_column_2 = 'Equilíbrio entre vida pessoal e acadêmica'
 
-    # Passo 3: Agrupar valores para "Impacto na Saúde"
-    health_impact_mapping = {
-        "Em parte, sinto leves impactos ocasionais.": "Impacto Leve",
-        "Não, consigo manter meu bem-estar físico e mental.": "Impacto Leve",
-        "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.": "Impacto Significativo"
+    saude_mapping = {
+            "Não, está sendo muito difícil ou impossível conciliar.": "Impacto Alto ou Mediano",
+            "Em parte, mas enfrento algumas dificuldades.": "Impacto Alto ou Mediano",
+            "Sim, consigo gerenciar bem.": "Impacto Baixo"
+        }
+    filtered_df[new_column_1] = filtered_df[column1].map(saude_mapping)
+
+    vida_pessoal_mapping = {
+        "Não, está sendo muito difícil ou impossível conciliar.": "Dificuldade alta ou média",
+        "Em parte, mas enfrento algumas dificuldades.": "Dificuldade alta ou média",
+        "Sim, consigo gerenciar bem.": "Pouca dificuldade"
     }
-    filtered_df[new_column_1] = filtered_df[column1].map(health_impact_mapping)
-
-    # Passo 4: Agrupar valores para "Expectativas Atendidas"
-    expectation_mapping = {
-        "Não, estou completamente decepcionada.": "Nada ou Parcialmente Atendidas",
-        "Em parte, mas há aspectos que me decepcionaram.": "Nada ou Parcialmente Atendidas",
-        "Sim, está dentro ou acima do esperado.": "Atendidas"
-    }
-    filtered_df[new_column_2] = filtered_df[column2].map(expectation_mapping)
+    filtered_df[new_column_2] = filtered_df[column2].map(vida_pessoal_mapping)
 
     explanation = """
     ### Redução de Categorias
     - **Impacto na Saúde**:
-    - As respostas originais foram agrupadas em três categorias:
-        - **"Impacto Leve"**: Inclui "Em parte, sinto leves impactos ocasionais.".
-        - **"Impacto Leve"**: Inclui "Não, consigo manter meu bem-estar físico e mental.".
-        - **"Impacto Significativo"**: Inclui "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.".
-
-    - **Expectativas Atendidas**:
     - As respostas originais foram agrupadas em duas categorias:
-        - **"Nada ou Parcialmente Atendidas"**: Inclui "Não, estou completamente decepcionada." e "Em parte, mas há aspectos que me decepcionaram.".
-        - **"Atendidas"**: Representa "Sim, está dentro ou acima do esperado.".
+        - **"Impacto Alto ou Mediano"**: Inclui "Não, está sendo muito difícil ou impossível conciliar." e "Em parte, mas enfrento algumas dificuldades.".
+        - **"Impacto Baixo"**: Representa "Sim, consigo gerenciar bem.".
+
+    - **Dificuldade de Conciliar com a Vida Pessoal**:
+    - As respostas originais foram agrupadas em duas categorias:
+        - **"Dificuldade alta ou média"**: Inclui "Não, está sendo muito difícil ou impossível conciliar." e "Em parte, mas enfrento algumas dificuldades.".
+        - **"Pouca dificuldade"**: Representa "Sim, consigo gerenciar bem.".
     """
 
 
@@ -283,8 +280,8 @@ chi2_results = pd.DataFrame({
     "Métrica": ["Estatística Qui-quadrado", "P-valor", "Graus de Liberdade"],
     "Valor": [chi2, p_value, dof]
 })
-expected_df = pd.DataFrame(expected, 
-                           index=grouped_contingency_table.index, 
+expected_df = pd.DataFrame(expected,
+                           index=grouped_contingency_table.index,
                            columns=grouped_contingency_table.columns)
 
 
