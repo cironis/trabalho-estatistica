@@ -163,9 +163,9 @@ elif selected_option == "Impacto na Saúde X Equilíbrio entre vida pessoal e ac
     new_column_2 = 'Equilíbrio entre vida pessoal e acadêmica'
 
     saude_mapping = {
-            "Não, está sendo muito difícil ou impossível conciliar.": "Impacto Alto ou Mediano",
-            "Em parte, mas enfrento algumas dificuldades.": "Impacto Alto ou Mediano",
-            "Sim, consigo gerenciar bem.": "Impacto Baixo"
+            "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.": "Impacto Alto ou Mediano",
+            "Em parte, sinto leves impactos ocasionais.": "Impacto Alto ou Mediano",
+            "Não, consigo manter meu bem-estar físico e mental.": "Impacto Baixo"
         }
     filtered_df[new_column_1] = filtered_df[column1].map(saude_mapping)
 
@@ -180,8 +180,8 @@ elif selected_option == "Impacto na Saúde X Equilíbrio entre vida pessoal e ac
     ### Redução de Categorias
     - **Impacto na Saúde**:
     - As respostas originais foram agrupadas em duas categorias:
-        - **"Impacto Alto ou Mediano"**: Inclui "Não, está sendo muito difícil ou impossível conciliar." e "Em parte, mas enfrento algumas dificuldades.".
-        - **"Impacto Baixo"**: Representa "Sim, consigo gerenciar bem.".
+        - **"Impacto Alto ou Mediano"**: Inclui "Sim, tem afetado minha saúde física e/ou mental de maneira significativa." e "Em parte, sinto leves impactos ocasionais.".
+        - **"Impacto Baixo"**: Representa "Não, consigo manter meu bem-estar físico e mental.".
 
     - **Dificuldade de Conciliar com a Vida Pessoal**:
     - As respostas originais foram agrupadas em duas categorias:
