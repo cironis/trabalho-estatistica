@@ -275,7 +275,7 @@ elif selected_option == "Desempenho Acadêmico X Tipo de Escola":
 grouped_contingency_table = pd.crosstab(filtered_df[new_column_1], filtered_df[new_column_2])
 
 # Passo 6: Realizar o teste qui-quadrado
-chi2, p_value, dof, expected = chi2_contingency(grouped_contingency_table)
+chi2, p_value, dof, expected = chi2_contingency(grouped_contingency_table, correction=False)
 
 # Passo 7: Criar DataFrames com os resultados
 chi2_results = pd.DataFrame({
