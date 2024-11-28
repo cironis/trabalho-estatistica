@@ -16,7 +16,7 @@ selected_option = st.selectbox(
     ["Desempenho Acadêmico X Qualidade das Aulas",
      "Planejamento Alinhado X Preparação para o Mercados",
      "Identificação com o Curso X Expectativas Atendidas",
-     "Impacto na Saúde X Expectativas Atendidas",
+     "Impacto na Saúde X Equilíbrio entre vida pessoal e acadêmica",
      "Infraestrutura Física X Suporte Acadêmico",
      "Desempenho Acadêmico X Tipo de Escola"
      ]
