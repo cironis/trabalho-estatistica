@@ -9,6 +9,8 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Análise de Independência", page_icon="📊", layout="wide")
 
+st.title("Análise de Independêcia")
+
 selected_option = st.selectbox(
     "Selecione uma hipótese:",
     ["Desempenho Acadêmico X Qualidade das Aulas",
