@@ -96,10 +96,10 @@ st.dataframe(summary_df, use_container_width=True, hide_index=True)
 st.subheader("Comparação de Resultados")
 
 fig_pvalue = px.bar(summary_df, x="Hipótese", y="p-value", title="Comparação de p-values", labels={"p-value": "p-value"})
-st.plotly_chart(fig_pvalue, use_container_width=True, hide_index=True)
+st.plotly_chart(fig_pvalue, use_container_width=True)
 
 fig_chi2 = px.bar(summary_df, x="Hipótese", y="Qui Quadrado", title="Comparação de Qui Quadrado", labels={"Qui Quadrado": "Qui Quadrado"})
-st.plotly_chart(fig_chi2, use_container_width=True, hide_index=True)
+st.plotly_chart(fig_chi2, use_container_width=True)
 
 # Selector for detailed analysis
 selected_option = st.selectbox(
@@ -133,4 +133,4 @@ chi2_results = pd.DataFrame({
     "Métrica": ["Estatística Qui-quadrado", "P-valor", "Graus de Liberdade"],
     "Valor": [chi2, p_value, dof]
 })
-st.dataframe(chi2_results, use_container_width=True, hide_index=True, hide_index=True)
+st.dataframe(chi2_results, use_container_width=True, hide_index=True)
