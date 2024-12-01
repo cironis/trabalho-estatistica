@@ -42,7 +42,7 @@ caracteristicas = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Visualização": [home,dados_coletados,caracteristicas,analisar_dados,analise_independencia]
+        "Visualização": [home,caracteristicas,dados_coletados,analisar_dados,analise_independencia]
     }
 )
 

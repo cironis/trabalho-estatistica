@@ -19,6 +19,7 @@ df = load_main_dataframe("base_respostas")
 df['Curso Matriculado'] = df['Curso Matriculado'].astype(str)
 df['Curso Matriculado'] = df['Curso Matriculado'].fillna('')
 df['instituto'] = df['Curso Matriculado'].str.split(' - ').str[0]
+df = df.loc[df['instituto'] != 'Outro']
 
 # df = generate_sample_dataframe(100)
 
