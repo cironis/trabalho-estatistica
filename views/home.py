@@ -11,7 +11,6 @@ st.set_page_config(page_title="Introdução", page_icon="📊", layout="wide")
 
 st.title("Título Do Trabalho!!!!!!!!")
 
-
 dados_do_grupo = {
                   
                   }
@@ -31,7 +30,7 @@ data = {
              "Ícaro Maringelli",
              "Mateus Eiji Miyazaki Pelegrina"
              ],
-    "Número USP": ["11223041", "5158197", "13689712", "14577107","XXXXXXXXX"],
+    "Número USP": ["11223041", "5158197", "13689712", "14577107","XXXXXXXXX","14597642"],
 }
 
 # Create a DataFrame
