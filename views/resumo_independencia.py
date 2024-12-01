@@ -46,14 +46,15 @@ mappings = {
         "column": "Você sente que se identifica com o curso em que está matriculado?",
         "mapping": {
             "Em parte, mas tenho dúvidas.": "Parcial",
-            "Sim, me identifico completamente.": "Total",
+            "Sim, me identifico completamente.": "Total"
         },
     },
     "Expectativas Atendidas": {
         "column": "O curso tem atendido às suas expectativas desde que você iniciou?",
         "mapping": {
             "Não, estou completamente decepcionada.": "Nada ou Parcialmente Atendidas",
-            "Sim, está dentro ou acima do esperado.": "Atendidas",
+            "Em parte, mas há aspectos que me decepcionaram.": "Nada ou Parcialmente Atendidas",
+            "Sim, está dentro ou acima do esperado.": "Atendidas"
         },
     },
     "Impacto na Saúde": {
