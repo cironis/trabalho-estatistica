@@ -26,8 +26,8 @@ df = df.loc[df['instituto'] != 'Outro']
 # Streamlit app for displaying base characteristics
 st.title("Descrição da População")
 
-instituto_col_1, instituto_col_2 = st.columns([1, 1])
 st.subheader("Distribuição por instituto")
+instituto_col_1, instituto_col_2 = st.columns([1, 1])
 
 with instituto_col_1:
 
@@ -38,9 +38,6 @@ with instituto_col_2:
 
     distribution = df["instituto"].value_counts().reset_index()
     distribution.columns = ["Instituto", "Contagem"]
-
-    # Display the table
-    st.subheader("Tabela de Distribuição por Instituto")
     st.dataframe(distribution, use_container_width=True,hide_index=True)
 
 # Distribution by Course
