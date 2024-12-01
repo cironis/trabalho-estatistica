@@ -9,9 +9,8 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Introdução", page_icon="📊", layout="wide")
 
-st.tittle("Título ")
+st.title("Título Do Trabalho!!!!!!!!")
 
-st.title("Tabela do Grupo")
 
 dados_do_grupo = {
                   
