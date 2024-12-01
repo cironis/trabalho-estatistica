@@ -14,13 +14,13 @@ st.title("Título Do Trabalho!!!!!!!!")
 
 # Data for the group
 data = {
-    "Foto": [
-                "images/Bruna.enc",
-                "images/Ciro.enc",
-                "images/Enzo.enc",
-                "images/Gustavo.enc",
-                "images/Icaro.enc",
-                "images/Mateus.enc"
+    "Foto": [   
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Bruna.enc",
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Ciro.enc",
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Enzo.webp",
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Gustavo.enc",
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Icaro.enc",
+            "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Mateus.enc"
             ], 
     "Nome": [
             "Bruna Hellmeister Bugari",
