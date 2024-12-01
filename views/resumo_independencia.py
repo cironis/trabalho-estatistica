@@ -89,7 +89,7 @@ mappings = {
 }
 
 for key, value in mappings.items():
-    df[key] = df[value["column"]].map(value["mapping"])
+    filtered_df[key] = filtered_df[value["column"]].map(value["mapping"])
 
 # Define hypotheses
 hypotheses = [
@@ -104,7 +104,7 @@ hypotheses = [
 # Create the summary table
 summary_data = []
 for hypo in hypotheses:
-    contingency_table = pd.crosstab(df[hypo[0]], df[hypo[1]])
+    contingency_table = pd.crosstab(filtered_df[hypo[0]], filtered_df[hypo[1]])
     st.write(hypo)
     st.dataframe(contingency_table)
     chi2, p_value, dof, _ = chi2_contingency(contingency_table, correction=False)
