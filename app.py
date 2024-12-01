@@ -9,7 +9,6 @@ home = st.Page(
     default=True,
 )
 
-
 descricao = st.Page(
     "views/descricao.py",
     title="Descrição",
