@@ -27,10 +27,10 @@ df = df.loc[df['instituto'] != 'Outro']
 st.title("Descrição da População")
 
 instituto_col_1, instituto_col_2 = st.columns([1, 1])
+st.subheader("Distribuição por instituto")
 
 with instituto_col_1:
 
-    st.subheader("Distribuição por instituto")
     fig_age = px.histogram(df, x="instituto", title="Distribuição por Instituto", labels={"Instituto": "Contagem"})
     st.plotly_chart(fig_age)
 
