@@ -52,9 +52,19 @@ st.dataframe(
     use_container_width=True,hide_index=True
 )
 
+def load_main_dataframe(worksheet):
+    conn = st.connection("gsheets", type=GSheetsConnection)
+    df = conn.read(worksheet=worksheet)
+    return df
+
+base_df = load_main_dataframe("base_respostas")
+
+st.write("**Dados Analisados:**")
+columns_as_list = "\n".join([f"- {col}" for col in base_df.columns])
+st.code(columns_as_list)
 
 st.markdown("""
-# Resumo:
+# Principais Tópicos:
 
 ## Introdução
 - **Motivação**: Baseado em artigo da USP sobre evasão na graduação (taxas de 0% a 54%), destacando desafios em cursos de exatas.
