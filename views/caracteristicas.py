@@ -38,22 +38,30 @@ with instituto_col_2:
 
     distribution = df["instituto"].value_counts().reset_index()
     distribution.columns = ["Instituto", "Contagem"]
-    
-    st.write("")
-    st.write("")
-    st.write("")
     st.write("**Tabela de Distribuição por Instituto**")
     st.dataframe(distribution, use_container_width=True,hide_index=True)
 
 # Distribution by Course
-st.subheader("Distribuição de Alunos por Curso Matriculado")
-fig_course = px.histogram(
-    df,
-    x="Curso Matriculado",
-    title="Distribuição de Alunos por Curso Matriculado",
-    labels={"Curso Matriculado": "Curso"}
-)
-st.plotly_chart(fig_course)
+st.subheader("Distribuição por curso")
+curso_col_1, curso_col_2 = st.columns([1, 1])
+
+with instituto_col_1:
+
+    st.subheader("Distribuição de Alunos por Curso Matriculado")
+    fig_course = px.histogram(
+        df,
+        x="Curso Matriculado",
+        title="Distribuição de Alunos por Curso Matriculado",
+        labels={"Curso Matriculado": "Curso"}
+    )
+    st.plotly_chart(fig_course)
+
+with curso_col_2:
+
+    distribution = df["Curso Matriculado"].value_counts().reset_index()
+    distribution.columns = ["Curso Matriculado", "Contagem"]
+    st.write("**Tabela de Distribuição por Curso Matriculado**")
+    st.dataframe(distribution, use_container_width=True,hide_index=True)
 
 # Distribution of Age
 st.subheader("Distribuição de Idade dos Alunos")
