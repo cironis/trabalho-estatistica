@@ -61,14 +61,16 @@ mappings = {
         "column": "O curso tem impactado sua saúde física ou mental de alguma forma?",
         "mapping": {
             "Sim, tem afetado minha saúde física e/ou mental de maneira significativa.": "Impacto Alto ou Mediano",
-            "Não, consigo manter meu bem-estar físico e mental.": "Impacto Baixo",
+            "Em parte, sinto leves impactos ocasionais.": "Impacto Alto ou Mediano",
+            "Não, consigo manter meu bem-estar físico e mental.": "Impacto Baixo"
         },
     },
     "Equilíbrio Vida Pessoal": {
         "column": "Você consegue equilibrar suas responsabilidades acadêmicas com sua vida pessoal?",
         "mapping": {
             "Não, está sendo muito difícil ou impossível conciliar.": "Dificuldade alta ou média",
-            "Sim, consigo gerenciar bem.": "Pouca dificuldade",
+            "Em parte, mas enfrento algumas dificuldades.": "Dificuldade alta ou média",
+            "Sim, consigo gerenciar bem.": "Pouca dificuldade"
         },
     },
     "Infraestrutura Física": {
