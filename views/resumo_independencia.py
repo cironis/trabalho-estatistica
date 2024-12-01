@@ -105,6 +105,8 @@ hypotheses = [
 summary_data = []
 for hypo in hypotheses:
     contingency_table = pd.crosstab(df[hypo[0]], df[hypo[1]])
+    st.write(hypo)
+    st.dataframe(contingency_table)
     chi2, p_value, dof, _ = chi2_contingency(contingency_table, correction=False)
     summary_data.append({"Hipótese": f"{hypo[0]} X {hypo[1]}", "Qui Quadrado": chi2, "p-value": p_value, "Graus de Liberdade": dof})
 
