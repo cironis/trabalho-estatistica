@@ -9,12 +9,6 @@ home = st.Page(
     default=True,
 )
 
-descricao = st.Page(
-    "views/descricao.py",
-    title="Descrição",
-    icon=":material/overview:",
-)
-
 analise_independencia = st.Page(
     "views/analise_independencia.py",
     title="Análise de Independência",
