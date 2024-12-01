@@ -3,7 +3,6 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 from scipy.stats import chi2_contingency
 import pandas as pd
-import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -90,7 +89,7 @@ summary_df = pd.DataFrame(summary_data)
 
 # Display the summary table
 st.subheader("Resumo das Hipóteses")
-st.dataframe(summary_df, use_container_width=True, hide_index=True)
+st.dataframe(summary_df, use_container_width=True)
 
 # Graphs for p-value and chi-square comparison
 st.subheader("Comparação de Resultados")
@@ -123,10 +122,10 @@ expected_df = pd.DataFrame(expected, index=grouped_contingency_table.index, colu
 st.title(f"Análise de Independência - {selected_option}")
 
 st.header("Tabela de Frequência Observada")
-st.dataframe(grouped_contingency_table, use_container_width=True, hide_index=True)
+st.dataframe(grouped_contingency_table, use_container_width=True)
 
 st.header("Frequências Esperadas")
-st.dataframe(expected_df, use_container_width=True, hide_index=True)
+st.dataframe(expected_df, use_container_width=True)
 
 st.header("Resultados do Teste Qui-quadrado")
 chi2_results = pd.DataFrame({
