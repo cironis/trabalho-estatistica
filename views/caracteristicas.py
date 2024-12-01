@@ -26,10 +26,22 @@ df = df.loc[df['instituto'] != 'Outro']
 # Streamlit app for displaying base characteristics
 st.title("Descrição da População")
 
-# Distribution of Age
-st.subheader("Distribuição por instituto")
-fig_age = px.histogram(df, x="instituto", title="Distribuição por Instituto", labels={"Instituto": "Contagem"})
-st.plotly_chart(fig_age)
+instituto_col_1, instituto_col_2 = st.columns([1, 1])
+
+with instituto_col_1:
+
+    st.subheader("Distribuição por instituto")
+    fig_age = px.histogram(df, x="instituto", title="Distribuição por Instituto", labels={"Instituto": "Contagem"})
+    st.plotly_chart(fig_age)
+
+with instituto_col_2:
+
+    distribution = df["instituto"].value_counts().reset_index()
+    distribution.columns = ["Instituto", "Contagem"]
+
+    # Display the table
+    st.subheader("Tabela de Distribuição por Instituto")
+    st.dataframe(distribution, use_container_width=True,hide_index=True)
 
 # Distribution by Course
 st.subheader("Distribuição de Alunos por Curso Matriculado")
