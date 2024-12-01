@@ -12,31 +12,14 @@ st.set_page_config(page_title="Introdução", page_icon="📊", layout="wide")
 
 st.title("Título Do Trabalho!!!!!!!!")
 
-import os
-import streamlit as st
-
-# Define the path to your cloned GitHub repository
-repo_path = os.getcwd()  # Current working directory of the Streamlit script
-
-# Walk through the directory and list all files and folders
-file_structure = []
-for root, dirs, files in os.walk(repo_path):
-    for file in files:
-        file_structure.append(os.path.join(root, file))
-
-# Display the structure in Streamlit
-st.markdown("### Files and Folders in the GitHub Repository")
-for file in file_structure:
-    st.write(file)
-
 # Data for the group
 data = {
     "Foto": ["assets/Bruna.enc",
-                "/assets/Ciro.enc",
-                "/assets/Enzo.enc",
-                "/assets/Gustavo.enc",
-                "/assets/Icaro.enc",
-                "/assets/Mateus.enc"], 
+                "assets/Ciro.enc",
+                "assets/Enzo.enc",
+                "assets/Gustavo.enc",
+                "assets/Icaro.enc",
+                "assets/Mateus.enc"], 
     "Nome": ["Bruna Hellmeister Bugari",
              "Ciro Nogueirão Shia",
              "Enzo Massato Kuniyoshi",
