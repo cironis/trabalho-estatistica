@@ -19,11 +19,11 @@ dados_do_grupo = {
 # Data for the group
 data = {
     "Foto": ["assets/Bruna.enc",
-                "assets/Ciro.enc",
-                "assets/Enzo.enc",
-                "assets/Gustavo.enc",
-                "assets/Icaro.enc",
-                "assets/Mateus.enc"], 
+                "/assets/Ciro.enc",
+                "/assets/Enzo.enc",
+                "/assets/Gustavo.enc",
+                "/assets/Icaro.enc",
+                "/assets/Mateus.enc"], 
     "Nome": ["Bruna Hellmeister Bugari",
              "Ciro Nogueirão Shia",
              "Enzo Massato Kuniyoshi",
