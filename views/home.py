@@ -14,20 +14,29 @@ st.title("Título Do Trabalho!!!!!!!!")
 
 # Data for the group
 data = {
-    "Foto": ["assets/Bruna.enc",
-                "assets/Ciro.enc",
-                "assets/Enzo.enc",
-                "assets/Gustavo.enc",
-                "assets/Icaro.enc",
-                "assets/Mateus.enc"], 
-    "Nome": ["Bruna Hellmeister Bugari",
+    "Foto": [
+                "images/Bruna.enc",
+                "images/Ciro.enc",
+                "images/Enzo.enc",
+                "images/Gustavo.enc",
+                "images/Icaro.enc",
+                "images/Mateus.enc"
+            ], 
+    "Nome": [
+            "Bruna Hellmeister Bugari",
              "Ciro Nogueirão Shia",
              "Enzo Massato Kuniyoshi",
              "Gustavo Pedro Simplício Correa",
              "Ícaro Maringelli",
              "Mateus Eiji Miyazaki Pelegrina"
              ],
-    "Número USP": ["11223041", "5158197", "13689712", "14577107","XXXXXXXXX","14597642"],
+    "Número USP": [
+            "11223041",
+            "5158197",
+            "13689712",
+            "14577107",
+            "XXXXXXXXX",
+            "14597642"],
 }
 
 # Create a DataFrame
