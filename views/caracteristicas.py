@@ -38,6 +38,7 @@ with instituto_col_2:
 
     distribution = df["instituto"].value_counts().reset_index()
     distribution.columns = ["Instituto", "Contagem"]
+    st.write("Tabela de Distribuição por instituto")
     st.dataframe(distribution, use_container_width=True,hide_index=True)
 
 # Distribution by Course
