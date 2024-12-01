@@ -24,18 +24,19 @@ mappings = {
     "Desempenho Acadêmico": {
         "column": "Como você avalia seu desempenho acadêmico em termos de notas e possibilidade de reprovações ou jubilamento?",
         "mapping": {
-            "Estou com dificuldades e em risco de reprovações ou jubilamento.": "Baixo ou Mediano",
-            "Minhas notas são medianas, mas consigo me manter regular.": "Baixo ou Mediano",
-            "Tenho boas notas e estou longe de risco de jubilamento.": "Boas Notas",
+        "Estou com dificuldades e em risco de reprovações ou jubilamento.": "Baixo ou Mediano",
+        "Minhas notas são medianas, mas consigo me manter regular.": "Baixo ou Mediano",
+        "Tenho boas notas e estou longe de risco de jubilamento.": "Boas Notas"
         },
     },
     "Qualidade das Aulas": {
         "column": "Avaliação do Curso [Como você avalia a qualidade das aulas no seu Instituto?]",
-        "mapping": {0: "Baixa", 1: "Baixa", 2: "Baixa", 3: "Alta", 4: "Alta", 5: "Alta"},
+        "mapping": {0: "Baixa", 1: "Baixa", 2: "Baixa",3: "Alta", 4: "Alta", 5: "Alta"},
     },
     "Planejamento Alinhado": {
         "column": "Avaliação do Curso [O planejamento do seu curso é alinhado com sua futura área de atuação?]",
-        "mapping": {0: "Desalinhado", 1: "Desalinhado", 2: "Desalinhado", 3: "Alinhado", 4: "Alinhado", 5: "Alinhado"},
+        "mapping": {0: "Desalinhado",1: "Desalinhado",2: "Desalinhado",3: "Alinhado",4: "Alinhado",5: "Alinhado"
+    },
     },
     "Preparação para o Mercado": {
         "column": "Avaliação do Curso [Você se sente preparado para o mercado de trabalho?]",
