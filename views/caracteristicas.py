@@ -62,6 +62,8 @@ with curso_col_2:
     st.write("**Tabela de Distribuição por Curso Matriculado**")
     st.dataframe(distribution, use_container_width=True,hide_index=True)
 
+st.write(df.columns)
+
 # Distribution of Age
 st.subheader("Distribuição de Idade dos Alunos")
 fig_age = px.histogram(df, x="Idade", title="Distribuição de Idade dos Alunos", labels={"Idade": "Idade"})
