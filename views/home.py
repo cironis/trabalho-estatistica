@@ -35,6 +35,7 @@ data = {
 
 # Create a DataFrame
 df = pd.DataFrame(data)
+df["Foto"] = df["Foto"].apply(lambda path: Image.open(path))
 
 # Display the table with image column configuration
 st.markdown("### Tabela do Grupo")
