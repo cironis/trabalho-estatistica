@@ -47,7 +47,87 @@ st.markdown("### Tabela do Grupo")
 st.dataframe(
     df,
     column_config={
-        "Foto": st.column_config.ImageColumn("Foto", width="small"),
+        "Foto": st.column_config.ImageColumn("Foto", width="medium"),
     },
     use_container_width=True,
 )
+
+
+st.markdown("""
+# Resumo:
+
+## Introdução
+- **Motivação**: Baseado em artigo da USP sobre evasão na graduação (taxas de 0% a 54%), destacando desafios em cursos de exatas.
+- **Objetivo**: Investigar níveis de satisfação dos alunos e propor políticas para reduzir a evasão.
+
+---
+
+## População Estudada
+- **Institutos**: IME, IF, IAG.
+- **Amostra Válida**: 55 respostas:
+  - IME: 32 alunos.
+  - IF: 16 alunos.
+  - IAG: 8 alunos.
+
+---
+
+## Coleta de Dados
+### Metodologias
+1. Pesquisas presenciais em corredores (após as aulas).
+2. Formulário no Google Forms distribuído em grupos de WhatsApp.
+
+### Observações
+- **Metodologia 1**:
+  - Mais precisa.
+  - Limitada em alcance e mais lenta.
+- **Metodologia 2**:
+  - Rápida.
+  - Maior quantidade de dados, mas menor aleatoriedade.
+
+---
+
+## Estrutura do Questionário
+1. **Perfil do Aluno**: Curso, idade, gênero, tipo de escola, etc.
+2. **Avaliação do Curso**:
+   - Notas de 0 (insatisfação) a 5 (satisfação).
+   - Aspectos avaliados: infraestrutura, qualidade das aulas, entre outros.
+3. **Permanência**:
+   - Intenção de continuar no curso.
+   - Impactos na saúde física/mental.
+   - Equilíbrio entre vida acadêmica e pessoal.
+
+---
+
+## Análises Inferenciais
+### Método
+- Teste Qui-Quadrado para verificar relações de independência.
+
+### Hipóteses Testadas
+1. **Desempenho ↔ Qualidade das Aulas**:
+   - Resultados: Independentes.
+2. **Coerência Curricular ↔ Preparação Profissional**:
+   - Resultados: Dependentes.
+3. **Identificação com o Curso ↔ Expectativas**:
+   - Resultados: Dependentes.
+4. **Impacto na Saúde ↔ Equilíbrio Vida-Acadêmico**:
+   - Resultados: Dados insuficientes.
+5. **Desempenho ↔ Tipo de Escola (Pública/Privada)**:
+   - Resultados: Dependentes.
+
+---
+
+## Resultados Principais
+- **Qualidade das Aulas**: Não afeta diretamente o desempenho acadêmico.
+- **Coerência Curricular**: Ligada à percepção de preparação profissional.
+- **Impactos na Saúde**: Dados insuficientes para análises conclusivas, mas desafios foram identificados.
+- **Tipo de Escola**: Alunos de escolas privadas tiveram melhor desempenho acadêmico.
+
+---
+
+## Conclusão
+- Recomendações:
+  - Melhorar a coerência curricular.
+  - Oferecer suporte à saúde mental.
+  - Implementar políticas que aumentem a satisfação e retenção dos alunos.
+
+""")
