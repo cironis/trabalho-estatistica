@@ -47,9 +47,9 @@ st.markdown("### Tabela do Grupo")
 st.dataframe(
     df,
     column_config={
-        "Foto": st.column_config.ImageColumn("Foto", width="medium"),
+        "Foto": st.column_config.ImageColumn("Foto", width="large"),
     },
-    use_container_width=True,
+    use_container_width=True,hide_index=True
 )
 
 
