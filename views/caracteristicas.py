@@ -47,7 +47,6 @@ curso_col_1, curso_col_2 = st.columns([1, 1])
 
 with instituto_col_1:
 
-    st.subheader("Distribuição de Alunos por Curso Matriculado")
     fig_course = px.histogram(
         df,
         x="Curso Matriculado",
