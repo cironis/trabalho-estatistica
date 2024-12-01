@@ -9,6 +9,12 @@ home = st.Page(
     default=True,
 )
 
+resumo_analise_independencia = st.Page(
+    "views/resumo_independencia.py",
+    title="Resumo Análise de Independência",
+    icon=":material/overview:",
+)
+
 analise_independencia = st.Page(
     "views/analise_independencia.py",
     title="Análise de Independência",
@@ -42,7 +48,7 @@ caracteristicas = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Visualização": [home,caracteristicas,dados_coletados,analisar_dados,analise_independencia]
+        "Visualização": [home,caracteristicas,resumo_analise_independencia,analise_independencia,dados_coletados,analisar_dados]
     }
 )
 
