@@ -14,14 +14,14 @@ st.title("Título Do Trabalho!!!!!!!!")
 
 # Data for the group
 data = {
-    "Foto": [   
+    "Foto": [
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Bruna.enc",
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Ciro.enc",
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Enzo.webp",
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Gustavo.enc",
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Icaro.enc",
             "https://raw.githubusercontent.com/cironis/trabalho-estatistica/main/images/Mateus.enc"
-            ], 
+            ],
     "Nome": [
             "Bruna Hellmeister Bugari",
              "Ciro Nogueirão Shia",
@@ -67,7 +67,7 @@ st.markdown("""
 # Principais Tópicos:
 
 ## Introdução
-- **Motivação**: Baseado em artigo da USP sobre evasão na graduação (taxas de 0% a 54%), destacando desafios em cursos de exatas.
+- **Motivação**: Baseado em artigo da USP sobre evasão na graduação destacando desafios em cursos de exatas.
 - **Objetivo**: Investigar níveis de satisfação dos alunos e propor políticas para reduzir a evasão.
 
 ---
