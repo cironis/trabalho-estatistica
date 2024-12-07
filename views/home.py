@@ -10,7 +10,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Introdução", page_icon="📊", layout="wide")
 
-st.title("Título Do Trabalho!!!!!!!!")
+st.title("Levantamento de satisfação dos alunos dos cursos do IME, IF, IAG")
 
 # Data for the group
 data = {
